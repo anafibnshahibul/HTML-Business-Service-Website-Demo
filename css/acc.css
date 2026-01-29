@@ -1,0 +1,345 @@
+ /* --- CSS VARIABLES & RESET --- */
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        /* --- UTILITIES --- */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 14px 32px;
+            background: var(--primary);
+            color: var(--white);
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+        }
+
+        .btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(79, 70, 229, 0.3);
+        }
+
+        .btn-outline {
+            background: transparent;
+            border: 2px solid var(--primary);
+            color: var(--primary);
+            margin-left: 10px;
+        }
+
+        .btn-outline:hover {
+            background: var(--primary);
+            color: var(--white);
+        }
+
+        h2 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            color: var(--dark);
+        }
+
+        .section-header {
+            text-align: center;
+            max-width: 700px;
+            margin: 0 auto 60px auto;
+        }
+
+        .section-padding {
+            padding: 100px 0;
+        }
+
+        /* --- NAVIGATION --- */
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            padding: 20px 0;
+            z-index: 1000;
+            box-shadow: 0 2px 15px rgba(0,0,0,0.05);
+        }
+
+        nav .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.8rem;
+            font-weight: 800;
+            color: var(--primary);
+            letter-spacing: -1px;
+        }
+
+        .nav-links {
+            list-style: none;
+            display: flex;
+            gap: 30px;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--dark);
+            font-weight: 500;
+            transition: 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: var(--primary);
+        }
+        
+        /* --- FOOTER --- */
+        footer {
+            background: #0b1120;
+            color: #94a3b8;
+            padding: 60px 0 20px;
+            border-top: 1px solid rgba(255,255,255,0.05);
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+
+        .footer-col h4 {
+            color: white;
+            margin-bottom: 20px;
+        }
+
+        .footer-col ul { list-style: none; }
+        .footer-col ul li { margin-bottom: 10px; }
+        .footer-col a { color: #94a3b8; text-decoration: none; }
+        .footer-col a:hover { color: white; }
+
+        .copyright {
+            text-align: center;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255,255,255,0.05);
+        }
+
+        #tw:hover{
+            color: #1C9CEA;
+            transform: translateY(-3px);
+            box-shadow: 0 5px 10px rgba(79, 70, 229, 0.3);
+        }
+        #lin:hover{
+            color:#0B63BD;
+            transform: translateY(-3px);
+            box-shadow: 0 5px 10px rgba(79, 70, 229, 0.3);
+        }
+        #inst:hover{
+            color: #E34173;
+            transform: translateY(-3px);
+            box-shadow: 0 5px 10px rgba(79, 70, 229, 0.3);
+        }
+        /* --- ANIMATION CLASS --- */
+        .reveal {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s ease;
+        }
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        a{
+            text-decoration: none;
+        }
+
+        /* --- RESPONSIVE --- */
+        @media (max-width: 768px) {
+            .hero h1 { font-size: 2.5rem; }
+            .about-wrapper { flex-direction: column; }
+            .stats-grid { grid-template-columns: 1fr 1fr; }
+            .footer-grid { grid-template-columns: 1fr 1fr; }
+            .price-card.featured { transform: scale(1); }
+            nav .nav-links { display: none; } /* Simplified for mobile */
+        }
+
+        /* ১. স্ক্রল করলে ন্যাভিগেশন বারের ব্যাকগ্রাউন্ড গাঢ় হবে */
+        nav.sticky {
+            background: rgba(255, 255, 255, 1);
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+            padding: 15px 0; /* একটু ছোট হবে */
+        }
+
+        /* ২. টাইপিং কার্সার */
+        #typewriter {
+            border-right: 3px solid var(--primary);
+            padding-right: 5px;
+            animation: blink 0.7s infinite;
+        }
+
+        @keyframes blink {
+            50% { border-color: transparent; }
+        }
+        /* --- RESPONSIVE NAVIGATION --- */
+
+    /* New Button Style for Navbar */
+    .btn-sm {
+        padding: 8px 20px;
+        font-size: 0.9rem;
+    }
+
+    .login-link {
+        color: var(--primary); 
+        font-weight: 700; 
+        margin-right: 15px;
+    }
+
+    /* Hamburger Icon (Hidden on Desktop) */
+    .hamburger {
+        display: none;
+        cursor: pointer;
+    }
+
+    .bar {
+        display: block;
+        width: 25px;
+        height: 3px;
+        margin: 5px auto;
+        transition: all 0.3s ease-in-out;
+        background-color: var(--dark);
+        border-radius: 3px;
+    }
+
+        .to-top{
+            background: #0B63BD;
+            position: fixed;
+            bottom: 16px;
+            right: 32px;
+            width: 45px;
+            height: 45px;
+            border-radius: 22px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 32px;
+            color: #ffffff;
+            text-decoration: none;
+            opacity: 0;
+            pointer-events: none;
+            transition: all .3s;
+        }
+
+        .to-top.active{
+            bottom: 32px;
+            pointer-events: auto;
+            opacity: 1;
+        }
+
+    /* Mobile Styles */
+    @media (max-width: 768px) {
+        /* Show Hamburger */
+        .hamburger {
+            display: block;
+        }
+
+        /* Animate Hamburger to X when active */
+        .hamburger.active .bar:nth-child(2) {
+            opacity: 0;
+        }
+        .hamburger.active .bar:nth-child(1) {
+            transform: translateY(8px) rotate(45deg);
+        }
+        .hamburger.active .bar:nth-child(3) {
+            transform: translateY(-8px) rotate(-45deg);
+        }
+
+    /* Mobile Menu Styling */
+    .nav-links {
+        position: fixed;
+        left: -100%; /* Hidden off-screen by default */
+        top: 70px; /* Below the navbar */
+        gap: 0;
+        flex-direction: column;
+        background-color: var(--white);
+        width: 100%;
+        text-align: center;
+        transition: 0.3s;
+        box-shadow: 0 10px 10px rgba(0,0,0,0.1);
+        padding: 20px 0;
+        display: flex !important; /* Overrides previous 'display: none' */
+    }
+
+    /* Class added by JS to show menu */
+    .nav-links.active {
+        left: 0;
+    }
+
+    .nav-links li {
+        margin: 16px 0;
+    }
+
+    /* Stack buttons on mobile */
+    .nav-btn-group {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 15px;
+        margin-top: 10px;
+    }
+    
+    .login-link {
+        margin-right: 0;
+    }
+}
+
+    .featured-gradient-bg {
+        width: 100%;
+        height: 400px;
+        background: linear-gradient(-45deg, #4f46e5, #3b82f6, #0ea5e9, #2dd4bf);
+        background-size: 400% 400%;
+        animation: gradientAnimation 10s ease infinite;
+        border-radius: 20px;
+        margin: 30px 0;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        box-shadow: 0 20px 40px rgba(79, 70, 229, 0.2);
+    }
+
+    @keyframes gradientAnimation {
+        0% { background-position: 0% 50%; }
+        50% { background-position: 100% 50%; }
+        100% { background-position: 0% 50%; }
+    }
+
+    .overlay-text {
+        text-align: center;
+        color: white;
+    }
+
+    .overlay-text i {
+        font-size: 4rem;
+        margin-bottom: 15px;
+        display: block;
+        opacity: 0.8;
+    }
+
+    .overlay-text span {
+        font-weight: 700;
+        letter-spacing: 2px;
+        text-transform: uppercase;
+    }
