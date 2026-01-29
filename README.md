@@ -33,6 +33,11 @@ Lumina is not just a website; it's a complete business solution. This repository
 ├── dashboard.html      # Protected Admin Panel
 ├── js/
 │   ├── admin.jsx       # Secure Dashboard Logic
-│   └── script.js       # Animations & Landing Page Logic
+│   └── script.js 
+|   └── to-top.js       # scroll to top logic
+│   └── dbs.jsx         # Some animation script
+│   └── custom.html.jsx # Custom HTML Tag         
 └── css/
-    └── style.css       # Global Styles & Animations
+|    └── style.css       # Global Styles & Animations
+|   └── style.min.css   # For the fake audit system
+│   └── acc.css         # For Dashboard Design 
