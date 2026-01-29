@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lumina Login</title>
+    <link rel="icon" href="../img/icon.png">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root { --wp-dark: #1d2327; --wp-blue: #2271b1; }
+        body { font-family: 'Inter', sans-serif; background: var(--wp-dark); margin: 0; display: flex; align-items: center; justify-content: center; height: 100vh; }
+        .auth-card { background: white; padding: 40px; border-radius: 4px; width: 340px; box-shadow: 0 10px 50px rgba(0,0,0,0.5); }
+        .auth-card h2 { text-align: center; margin-bottom: 25px; color: var(--wp-dark); }
+        .auth-card input { width: 100%; padding: 12px; margin-bottom: 15px; border: 1px solid #ccd0d4; border-radius: 4px; box-sizing: border-box; }
+        .auth-card button { width: 100%; padding: 12px; background: var(--wp-blue); color: white; border: none; border-radius: 4px; cursor: pointer; font-weight: 600; width: 100%; }
+        #err { color:red; display:none; text-align:center; font-size:12px; margin-top:10px; }
+    </style>
+</head>
+<body>
+
+    <div class="auth-card">
+        <h2>Lumina Login</h2>
+        <input type="text" id="userInput" placeholder="Username">
+        <input type="password" id="passInput" placeholder="Password">
+        <input type="password" id="keyInput" placeholder="Pass Key">
+        <button onclick="handleLogin()">Log In</button>
+        <p id="err">Access Denied!</p>
+    </div>
+
+    <script src="js/admin.jsx"></script>
+</body>
+</html>

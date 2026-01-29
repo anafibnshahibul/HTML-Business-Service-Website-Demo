@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lumina Dashboard | 10-Tab Edition</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/ea0adb97da.js" crossorigin="anonymous"></script>
+    <link rel="icon" href="img/icon.png">
+    <style>
+        :root {
+            --wp-dark: #1d2327;
+            --wp-sidebar: #2c3338;
+            --wp-blue: #2271b1;
+            --bg-body: #f0f0f1;
+        }
+
+        /* Security: Hide body initially to prevent flicker before login check */
+        body { font-family: 'Inter', sans-serif; background: var(--bg-body); margin: 0; display: none; height: 100vh; overflow: hidden; }
+
+        .sidebar { width: 220px; background: var(--wp-sidebar); color: #c3c4c7; flex-shrink: 0; overflow-y: auto; }
+        .sidebar-header { padding: 20px; font-weight: 700; color: white; background: #1d2327; border-bottom: 1px solid #3c434a; }
+        .nav-item { padding: 12px 20px; cursor: pointer; display: flex; align-items: center; border-bottom: 1px solid #3c434a; transition: 0.1s; font-size: 14px; }
+        .nav-item i { width: 25px; font-size: 16px; }
+        .nav-item:hover, .nav-item.active { background: var(--wp-blue); color: white; }
+        .logout-btn { color: #f64e60 !important; margin-top: 20px; }
+
+        .main { flex-grow: 1; display: flex; flex-direction: column; }
+        .top-nav { background: white; padding: 15px 30px; border-bottom: 1px solid #ccd0d4; display: flex; justify-content: space-between; align-items: center; }
+        .content-body { padding: 30px; overflow-y: auto; flex-grow: 1; }
+        .tab-panel { display: none; animation: slideIn 0.3s ease-out; }
+        .tab-panel.active { display: block; }
+        @keyframes slideIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+
+        .card { background: white; padding: 25px; border: 1px solid #ccd0d4; box-shadow: 0 1px 1px rgba(0,0,0,0.04); margin-bottom: 20px; }
+        .btn-link { display: inline-block; padding: 8px 16px; background: #f6f7f7; border: 1px solid var(--wp-blue); color: var(--wp-blue); text-decoration: none; border-radius: 3px; font-size: 13px; margin-top: 10px; font-weight: 500; cursor: pointer; }
+        .btn-link:hover { background: var(--wp-blue); color: white; }
+    </style>
+</head>
+<body>
+
+    <div id="dashboard" style="display:flex; width:100%;">
+        <div class="sidebar">
+            <div class="sidebar-header">LUMINA ADMIN</div>
+            <div class="nav-item active" onclick="openTab(event, 'welcome')"><i class="fas fa-home"></i> Welcome</div>
+            <div class="nav-item" onclick="openTab(event, 'checkout')"><i class="fas fa-cart-arrow-down"></i> Checkout Data</div>
+            <div class="nav-item" onclick="openTab(event, 'messages')"><i class="fas fa-envelope-open-text"></i> Messages</div>
+            <div class="nav-item" onclick="openTab(event, 'audit')"><i class="fas fa-microchip"></i> Audit Engine</div>
+            <div class="nav-item" onclick="openTab(event, 'github')"><i class="fab fa-github"></i> GitHub Code</div>
+            <div class="nav-item" onclick="openTab(event, 'analytics')"><i class="fas fa-chart-line"></i> Analytics</div>
+            <div class="nav-item" onclick="openTab(event, 'logs')"><i class="fas fa-history"></i> User Logs</div>
+            <div class="nav-item" onclick="openTab(event, 'support')"><i class="fas fa-headset"></i> Support</div>
+            <div class="nav-item" onclick="openTab(event, 'settings')"><i class="fas fa-tools"></i> Settings</div>
+            <div class="nav-item logout-btn" onclick="logout()"><i class="fas fa-sign-out-alt"></i> Logout</div>
+        </div>
+
+        <div class="main">
+            <div class="top-nav">
+                <div style="font-weight: 600;">Dashboard / <span id="bread">Welcome</span></div>
+                <div class="card"><p>Check all form messages.</p><a href="index.html" target="_blank" class="btn-link">View Site</a></div>
+                <div id="date-display"></div>
+            </div>
+
+            <div class="content-body">
+                <div id="welcome" class="tab-panel active">
+                    <div class="card">
+                        <h1>Hello, <span id="admin-user"></span>!</h1>
+                        <p>Welcome to the ultimate control center for Lumina Premium.</p>
+                    </div>
+                </div>
+
+                <div id="checkout" class="tab-panel">
+                    <h2>Checkout Submissions</h2>
+                    <div class="card"><p>Access all purchase data here.</p><a href="https://docs.google.com/forms/d/1QkdkC2y9NLpft3fh4zd05UAvbMqqgIpoisGBOgflg-o/edit#responses" target="_blank" class="btn-link">Open Spreadsheet</a></div>
+                </div>
+
+                <div id="messages" class="tab-panel">
+                    <h2>Customer Inquiries</h2>
+                    <div class="card"><p>Check all form messages.</p><a href="https://docs.google.com/forms/d/1usR5V9O0qZR3iy7EDL6mg_j234gI-DeB8vZ0uuRhC70/edit#responses" target="_blank" class="btn-link">View Messages</a></div>
+                </div>
+
+                <div id="audit" class="tab-panel">
+                    <h2>Audit Logic (790+ Lines)</h2>
+                    <div class="card"><p>Engine version: 1.0.4. Desktop exclusive.</p><a href="aud.html"><button class="btn-link">Run Debugger</button></a></div>
+                </div>
+
+                <div id="github" class="tab-panel">
+                    <h2>Source Code Control</h2>
+                    <div class="card"><p>Edit your project on GitHub.</p><a href="#" target="_blank" class="btn-link">Edit Files</a></div>
+                </div>
+
+                <div id="analytics" class="tab-panel">
+                    <h2>Site Traffic & Analytics</h2>
+                    <div class="card"><p>Real-time visitors and session data (Google Analytics).</p></div>
+                </div>
+
+            <div id="logs" class="tab-panel">
+                <h2>Activity Logs</h2>
+                <div class="card">
+                    <p style="color: #666; font-size: 13px; margin-bottom: 15px;">System generated logs. These records are read-only and cannot be modified.</p>
+                    <table style="width: 100%; border-collapse: collapse; font-size: 13px;">
+                        <thead style="background: #f9f9f9; text-align: left;">
+                            <tr>
+                                <th style="padding: 10px; border-bottom: 2px solid #ddd;">Timestamp</th>
+                                <th style="padding: 10px; border-bottom: 2px solid #ddd;">User</th>
+                                <th style="padding: 10px; border-bottom: 2px solid #ddd;">Action</th>
+                                <th style="padding: 10px; border-bottom: 2px solid #ddd;">Status</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td style="padding: 10px; border-bottom: 1px solid #eee;">2026-01-29 10:45:12</td>
+                                <td style="padding: 10px; border-bottom: 1px solid #eee;">Anaf (Admin)</td>
+                                <td style="padding: 10px; border-bottom: 1px solid #eee;">Logged in successfully</td>
+                                <td style="padding: 10px; border-bottom: 1px solid #eee;"><span style="color: green;">Success</span></td>
+                            </tr>
+                            <tr>
+                                <td style="padding: 10px; border-bottom: 1px solid #eee;">2026-01-29 09:30:05</td>
+                                <td style="padding: 10px; border-bottom: 1px solid #eee;">System</td>
+                                <td style="padding: 10px; border-bottom: 1px solid #eee;">Audit Engine 1.0.4 Synced</td>
+                                <td style="padding: 10px; border-bottom: 1px solid #eee;"><span style="color: blue;">Info</span></td>
+                            </tr>
+                            <tr>
+                                <td style="padding: 10px; border-bottom: 1px solid #eee;">2026-01-28 22:15:40</td>
+                                <td style="padding: 10px; border-bottom: 1px solid #eee;">Unknown IP</td>
+                                <td style="padding: 10px; border-bottom: 1px solid #eee;">Failed Login Attempt</td>
+                                <td style="padding: 10px; border-bottom: 1px solid #eee;"><span style="color: red;">Blocked</span></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+                <div id="support" class="tab-panel">
+                    <h2>Customer Support</h2>
+                    <div class="card"><p>Manage support tickets and live chat requests.</p></div>
+                </div>
+
+               <div id="settings" class="tab-panel">
+            <h2>Global Settings</h2>
+            <div class="card">
+                <h3>Display Preferences</h3>
+                <div style="margin-bottom: 20px;">
+                    <label style="display: block; margin-bottom: 8px; font-weight: 500;">Interface Theme</label>
+                    <select id="theme-select" style="padding: 8px; width: 200px; border-radius: 4px; border: 1px solid #ccd0d4;">
+                        <option value="white">White Mode (Default)</option>
+                        <option value="dark">Dark Mode</option>
+                    </select>
+                </div>
+
+                <div style="margin-bottom: 20px;">
+                    <label style="display: block; margin-bottom: 8px; font-weight: 500;">Text Size</label>
+                    <select id="font-size-select" style="padding: 8px; width: 200px; border-radius: 4px; border: 1px solid #ccd0d4;">
+                        <option value="14px">Normal (Small)</option>
+                        <option value="16px">Medium</option>
+                        <option value="18px">Large (Bold)</option>
+                    </select>
+                </div>
+
+                <button class="btn-link" onclick="applySettings()" style="background: var(--wp-blue); color: white; border: none;">Save Configuration</button>
+            </div>
+        </div>
+        </div>
+    </div>
+
+    <script src="js/admin.jsx"></script>
+</body>
+</html>

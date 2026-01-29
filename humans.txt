@@ -1,0 +1,8 @@
+/* TEAM */
+Main Developer: Anaf Ibn Shahibul
+Location: Rupnagar, Dhaka, Bangladesh.
+
+/* SITE */
+Last update: 2026/01/27
+Language: English, Bengali
+Software: Lumina Premium (Audit Engine 1.0.4)

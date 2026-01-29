@@ -1,0 +1,8 @@
+-----BEGIN PGP PUBLIC KEY BLOCK-----
+Version: OpenPGP.js v4.10.1
+Comment: https://openpgpjs.org
+
+xsBNBF8L5m4BCAC9i3Y+p8+L5yG9X3A6k7U5f9N2zX1qW+rE8T2M6V5R2X5r
+... [This is a Placeholder PGP Key for Lumina Premium] ...
+v9N2zX1qW+rE8T2M6V5R2X5rxsBNBF8L5m4BCAC9i3Y+p8+L5yG9X3A6k7U5
+-----END PGP PUBLIC KEY BLOCK-----

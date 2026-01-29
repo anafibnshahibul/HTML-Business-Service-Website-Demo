@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blog | Lumina Web Solutions</title>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="icon" href="img/icon.png">
+    <script src="https://kit.fontawesome.com/ea0adb97da.js" crossorigin="anonymous"></script>
+    <style>
+        .blog-hero {
+            background: linear-gradient(rgba(79, 70, 229, 0.9), rgba(15, 23, 42, 0.9)), 
+                        url('https://images.unsplash.com/photo-1499750310107-5fef28a66643?auto=format&fit=crop&w=1350&q=80');
+            background-size: cover;
+            background-position: center;
+            color: white;
+            padding: 150px 0 80px;
+            text-align: center;
+        }
+
+        .blog-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 30px;
+            padding: 80px 0;
+        }
+
+        .blog-card {
+            background: white;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            border: 1px solid #f1f5f9;
+        }
+
+        .blog-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+        }
+
+        .blog-img {
+            width: 100%;
+            height: 220px;
+            object-fit: cover;
+        }
+
+        .blog-content {
+            padding: 25px;
+        }
+
+        .blog-meta {
+            font-size: 0.85rem;
+            color: var(--primary);
+            font-weight: 600;
+            margin-bottom: 10px;
+            display: block;
+        }
+
+        .blog-content h3 {
+            margin-bottom: 15px;
+            color: var(--dark);
+            line-height: 1.4;
+        }
+
+        .blog-content p {
+            color: var(--text-gray);
+            font-size: 0.95rem;
+            line-height: 1.6;
+            margin-bottom: 20px;
+        }
+
+        .read-more {
+            color: var(--dark);
+            font-weight: 700;
+            text-decoration: none;
+            font-size: 0.9rem;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+
+        .read-more:hover { color: var(--primary); }
+
+        @media (max-width: 768px) {
+            .blog-grid { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body>
+
+   <nav>
+        <div class="container">
+            <a href="index.html"><div class="logo">LUMINA.</div></a>
+            
+            <div class="hamburger" id="hamburger">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+
+            <ul class="nav-links" id="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="index.html#features">Features</a></li>
+                <li><a href="index.html#pricing">Pricing</a></li>
+                <li><a href="blog.htm">Blog</a></li> 
+                <li><a href="index.html#contact">Contact</a></li>
+                <li class="nav-btn-group">
+                    <a href="#" class="btn btn-sm">Sign Up</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <header class="blog-hero">
+        <div class="container reveal">
+            <h1>Insights & Innovations</h1>
+            <p>Stay updated with the latest trends in web technology and digital growth.</p>
+        </div>
+    </header>
+
+    <section class="container">
+        <div class="blog-grid">
+            <div class="blog-card reveal">
+                <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=800&q=80" alt="Blog 1" class="blog-img">
+                <div class="blog-content">
+                    <span class="blog-meta">TECHNOLOGY • JAN 20, 2026</span>
+                    <h3>The Future of Web Design in 2026</h3>
+                    <p>Discover how AI and immersive 3D elements are changing the way we interact with websites...</p>
+                    <a href="future2026.html" class="read-more">Read Full Story <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </div>
+
+            <div class="blog-card reveal">
+                <img src="https://images.unsplash.com/photo-1551434678-e076c223a692?auto=format&fit=crop&w=800&q=80" alt="Blog 2" class="blog-img">
+                <div class="blog-content">
+                    <span class="blog-meta">BUSINESS • JAN 15, 2026</span>
+                    <h3>Scaling Your SaaS with Intelligence</h3>
+                    <p>How data-driven decisions can help your business grow faster in a competitive market...</p>
+                    <a href="saas.html" class="read-more">Read Full Story <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </div>
+
+            <div class="blog-card reveal">
+                <img src="https://images.unsplash.com/photo-1552664730-d307ca884978?auto=format&fit=crop&w=800&q=80" alt="Blog 3" class="blog-img">
+                <div class="blog-content">
+                    <span class="blog-meta">DEVELOPMENT • JAN 10, 2026</span>
+                    <h3>Why Performance Matters for SEO</h3>
+                    <p>A deep dive into Core Web Vitals and how speed affects your Google search rankings...</p>
+                    <a href="seo.htm" class="read-more">Read Full Story <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <div class="logo" style="margin-bottom: 20px;">LUMINA.</div>
+                    <p>Making the web a better place, one pixel at a time.</p>
+                </div>
+                <div class="footer-col">
+                    <h4>Company</h4>
+                    <ul>
+                        <li><a href="about.html">About</a></li>
+                        <li><a href="carrer.html">Careers</a></li>
+                        <li><a href="blog.htm">Blog</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Resources</h4>
+                    <ul>
+                        <li><a href="about.html">Documentation</a></li>
+                        <li><a href="javascript:void(0)" onclick="openHelp()">Help Center</a></li>
+                        <li><a href="privacy.html">Privacy</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Social</h4>
+                    <ul>
+                        <li><a href="https://x.com" id="tw" target="_blank" nofollow>Twitter</a></li>
+                        <li><a href="https://linkedin.com" id="lin" target="_blank">LinkedIn</a></li>
+                        <li><a href="https://instagram.com" id="inst" target="_blank">Instagram</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>&copy; 2024 Lumina Inc. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <a href="#" class="to-top">
+        <i class="fas fa-chevron-up"></i>
+    </a>
+
+    <script src="js/script.js"></script>
+    <script src="js/to-top.js"></script>
+    <script src="js/custom.html.jsx"></script>
+    <script src="js/dbs.jsx"></script>
+
+</body>
+</html>

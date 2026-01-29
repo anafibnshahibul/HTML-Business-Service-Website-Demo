@@ -1,0 +1,415 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us | Lumina Web Solutions</title>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="icon" href="img/icon.png">
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+    <script src="https://kit.fontawesome.com/ea0adb97da.js" crossorigin="anonymous"></script>
+    <style>
+        /* Custom Styles for About Page */
+      /* Custom Styles for About Page */
+        .about-hero {
+            background: linear-gradient(rgba(79, 70, 229, 0.8), rgba(15, 23, 42, 0.8)), 
+                        url('img/dt.avif');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            color: white;
+            padding: 180px 0 100px;
+            text-align: center;
+        }
+        .about-hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 20px;
+            animation: fadeInDown 1s ease-out;
+        }
+        .about-hero p {
+            font-size: 1.2rem;
+            max-width: 800px;
+            margin: 0 auto 40px;
+            animation: fadeInUp 1s ease-out 0.3s backwards;
+        }
+
+        .section-padding { padding: 100px 0; }
+        .section-title {
+            font-size: 2.5rem;
+            color: var(--dark);
+            text-align: center;
+            margin-bottom: 60px;
+            position: relative;
+        }
+        .section-title::after {
+            content: '';
+            position: absolute;
+            left: 50%;
+            bottom: -15px;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 4px;
+            background-color: var(--primary);
+            border-radius: 2px;
+        }
+
+        /* Our Story */
+        .our-story-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 50px;
+            align-items: center;
+        }
+        .our-story-grid img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 10px;
+            box-shadow: 0 15px 30px rgba(0,0,0,0.1);
+            animation: slideInLeft 1s ease-out forwards;
+        }
+        .our-story-content {
+            animation: slideInRight 1s ease-out forwards;
+        }
+        .our-story-content h3 { color: var(--primary); margin-bottom: 20px; }
+        .our-story-content p { color: var(--text-gray); line-height: 1.8; margin-bottom: 15px; }
+        .twp{ color: var(--text-gray); line-height: 1.8; margin-bottom: 15px; }
+
+        /* Mission & Vision */
+        .mission-vision-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            text-align: center;
+        }
+        .mv-item {
+            background-color: var(--white);
+            padding: 40px;
+            border-radius: 10px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.05);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .mv-item:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 35px rgba(0,0,0,0.1);
+        }
+        .mv-item i {
+            font-size: 3rem;
+            color: var(--primary);
+            margin-bottom: 20px;
+        }
+        .mv-item h4 {
+            font-size: 1.5rem;
+            color: var(--dark);
+            margin-bottom: 15px;
+        }
+        .mv-item p { color: var(--text-gray); line-height: 1.7; }
+
+        /* Team Section */
+        .team-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            text-align: center;
+        }
+        .team-member {
+            background-color: var(--white);
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.05);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .team-member:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.1);
+        }
+        .team-member img {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin-bottom: 20px;
+            border: 5px solid var(--primary-light);
+            transition: border-color 0.3s ease;
+        }
+        .team-member:hover img {
+            border-color: var(--primary);
+        }
+        .team-member h4 {
+            font-size: 1.4rem;
+            color: var(--dark);
+            margin-bottom: 5px;
+        }
+        .team-member p {
+            color: var(--primary);
+            font-weight: 600;
+            font-size: 0.95rem;
+        }
+
+        /* Values Section */
+        .values-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+        }
+        .value-item {
+            background-color: var(--white);
+            padding: 40px;
+            border-radius: 10px;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.05);
+            text-align: center;
+        }
+        .value-item i {
+            font-size: 2.5rem;
+            color: var(--primary);
+            margin-bottom: 20px;
+        }
+        .value-item h4 {
+            font-size: 1.3rem;
+            color: var(--dark);
+            margin-bottom: 10px;
+        }
+        .value-item p {
+            color: var(--text-gray);
+            line-height: 1.7;
+        }
+
+        /* Call to Action */
+        .cta-about {
+            text-align: center;
+            background-color: var(--primary-light);
+            padding: 80px 0;
+            color: white;
+        }
+        .cta-about h2 {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+        }
+        .cta-about p {
+            font-size: 1.1rem;
+            margin-bottom: 40px;
+        }
+        .cta-about .btn {
+            background-color: white;
+            color: var(--primary);
+            font-weight: 700;
+        }
+        .cta-about .btn:hover {
+            background-color: var(--dark);
+            color: white;
+        }
+
+        /* Animations for sections - using existing reveal from style.css */
+        .reveal.animated {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        /* Specific entry animations */
+        @keyframes fadeInDown {
+            from { opacity: 0; transform: translateY(-50px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(50px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        @keyframes slideInLeft {
+            from { opacity: 0; transform: translateX(-50px); }
+            to { opacity: 1; transform: translateX(0); }
+        }
+        @keyframes slideInRight {
+            from { opacity: 0; transform: translateX(50px); }
+            to { opacity: 1; transform: translateX(0); }
+        }
+
+        /* Responsive adjustments */
+        @media (max-width: 768px) {
+            .about-hero h1 { font-size: 2.5rem; }
+            .about-hero p { font-size: 1rem; }
+            .section-title { font-size: 2rem; }
+            .our-story-grid { grid-template-columns: 1fr; }
+            .our-story-grid img { margin-bottom: 30px; }
+        }
+    </style>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+
+    <nav>
+        <div class="container">
+            <a href="index.html"><div class="logo">LUMINA.</div></a>
+            
+            <div class="hamburger" id="hamburger">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+    
+            <ul class="nav-links" id="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html" class="active">About</a></li> <li><a href="index.html#features">Features</a></li>
+                <li><a href="index.html#pricing">Pricing</a></li>
+                <li><a href="blog.htm">Blog</a></li> <li><a href="index.html#contact">Contact</a></li>
+                <li class="nav-btn-group">
+                    <a href="#" class="btn btn-sm">Sign Up</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <section class="about-hero">
+        <div class="container">
+            <h1>Driving Innovation, Shaping the Future.</h1>
+            <p>At Lumina, we believe in the power of technology to transform businesses and enrich lives. Discover our journey, values, and the people behind our success.</p>
+        </div>
+    </section>
+
+    <section class="our-story section-padding bg-light">
+        <div class="container">
+            <h2 class="section-title reveal">Our Story</h2>
+            <div class="our-story-grid">
+                <div class="reveal">
+                    <img src="img/about.jpg" alt="Lumina Story">
+                </div>
+                <div class="our-story-content reveal">
+                    <h3>From a Vision to Reality</h3>
+                    <type-writer con="p" speed="10" class="twp">Founded in 2020 by a group of passionate technologists, Lumina Web Solutions started with a simple yet ambitious goal: to create innovative digital solutions that empower businesses to thrive in the ever-evolving online landscape. What began as a small project in a shared workspace has grown into a leading web solutions provider, serving clients globally.</type-writer>
+                    <p>Our journey has been marked by continuous learning, relentless innovation, and an unwavering commitment to our clients' success. We've embraced challenges as opportunities to grow, adapting to new technologies and setting new benchmarks in the industry.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="mission-vision section-padding">
+        <div class="container">
+            <h2 class="section-title reveal">Our Mission & Vision</h2>
+            <div class="mission-vision-grid">
+                <div class="mv-item reveal">
+                    <i class="fas fa-bullseye"></i>
+                    <h4>Our Mission</h4>
+                    <p>To deliver cutting-edge, scalable, and secure web solutions that drive growth, enhance user experience, and provide measurable value to our clients worldwide.</p>
+                </div>
+                <div class="mv-item reveal">
+                    <i class="fas fa-eye"></i>
+                    <h4>Our Vision</h4>
+                    <p>To be the global leader in web innovation, recognized for our exceptional quality, transformative impact, and dedication to pushing the boundaries of technology.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="team section-padding bg-light">
+        <div class="container">
+            <h2 class="section-title reveal">Meet Our Team</h2>
+            <div class="team-grid">
+                <div class="team-member reveal">
+                    <img src="img/jhon.avif" alt="John Doe">
+                    <h4>John Doe</h4>
+                    <p>CEO & Founder</p>
+                </div>
+                <div class="team-member reveal">
+                    <img src="img/ds.avif" alt="Jane Smith">
+                    <h4>Jane Smith</h4>
+                    <p>Lead Developer</p>
+                </div>
+                <div class="team-member reveal">
+                    <img src="img/alex.avif" alt="Alex Johnson">
+                    <h4>Alex Johnson</h4>
+                    <p>Marketing Head</p>
+                </div>
+                <div class="team-member reveal">
+                    <img src="img/emili.avif" alt="Emily White">
+                    <h4>Emily White</h4>
+                    <p>Product Manager</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="our-values section-padding">
+        <div class="container">
+            <h2 class="section-title reveal">Our Core Values</h2>
+            <div class="values-grid">
+                <div class="value-item reveal">
+                    <i class="fas fa-lightbulb"></i>
+                    <h4>Innovation</h4>
+                    <p>We constantly seek new ways to solve problems and improve our services, staying ahead of industry trends.</p>
+                </div>
+                <div class="value-item reveal">
+                    <i class="fas fa-handshake"></i>
+                    <h4>Integrity</h4>
+                    <p>We operate with honesty, transparency, and a strong ethical compass in all our dealings.</p>
+                </div>
+                <div class="value-item reveal">
+                    <i class="fas fa-users"></i>
+                    <h4>Collaboration</h4>
+                    <p>We believe in teamwork, fostering an environment where diverse ideas and talents can flourish.</p>
+                </div>
+                <div class="value-item reveal">
+                    <i class="fas fa-rocket"></i>
+                    <h4>Excellence</h4>
+                    <p>We are committed to delivering the highest quality in everything we do, striving for perfection.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="cta-about">
+        <div class="container reveal">
+            <h2>Ready to Transform Your Business?</h2>
+            <p>We'd love to hear from you and discuss how Lumina can help achieve your digital goals.</p>
+            <a href="index.html#contact" class="btn">Get in Touch</a>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <div class="logo" style="margin-bottom: 20px;">LUMINA.</div>
+                    <p>Making the web a better place, one pixel at a time.</p>
+                </div>
+                <div class="footer-col">
+                    <h4>Company</h4>
+                    <ul>
+                        <li><a href="about.html">About</a></li>
+                        <li><a href="carrer.html">Careers</a></li>
+                        <li><a href="blog.htm">Blog</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Resources</h4>
+                    <ul>
+                        <li><a href="about.html">Documentation</a></li>
+                        <li><a href="javascript:void(0)" onclick="openHelp()">Help Center</a></li>
+                        <li><a href="privacy.html">Privacy</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Social</h4>
+                    <ul>
+                        <li><a href="https://x.com" id="tw" target="_blank" nofollow>Twitter</a></li>
+                        <li><a href="https://linkedin.com" id="lin" target="_blank">LinkedIn</a></li>
+                        <li><a href="https://instagram.com" id="inst" target="_blank">Instagram</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>&copy; 2024 Lumina Inc. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <a href="#" class="to-top">
+        <i class="fas fa-chevron-up"></i>
+    </a>
+
+    <script src="js/script.js">
+    </script>
+    <script src="js/to-top.js"></script>
+    <script type="text/babel" src="js/dbs.jsx"></script>
+    <script src="js/custom.html.jsx"></script>
+
+</body>
+</html>

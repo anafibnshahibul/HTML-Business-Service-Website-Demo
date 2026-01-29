@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+
+  <url>
+    <loc>https://lumina-port201.netlify.app/</loc>
+    <lastmod>2026-01-27</lastmod>
+    <priority>1.00</priority>
+  </url>
+
+  <url>
+    <loc>https://lumina-port201.netlify.app/about.html</loc>
+    <lastmod>2026-01-27</lastmod>
+    <priority>0.80</priority>
+  </url>
+
+    <url>
+    <loc>https://lumina-port201.netlify.app/aud.html</loc>
+    <lastmod>2026-01-27</lastmod>
+    <priority>0.40</priority>
+  </url>
+
+  <url>
+    <loc>https://lumina-port201.netlify.app/seo.htm</loc>
+    <lastmod>2026-01-27</lastmod>
+    <priority>0.90</priority>
+  </url>
+
+    <url>
+    <loc>https://lumina-port201.netlify.app/future2026.html</loc>
+    <lastmod>2026-01-27</lastmod>
+    <priority>0.90</priority>
+  </url>
+
+  <url>
+    <loc>https://lumina-port201.netlify.app/saas.html</loc>
+    <lastmod>2026-01-27</lastmod>
+    <priority>0.90</priority>
+  </url>
+
+  <url>
+    <loc>https://lumina-port201.netlify.app/blog.htm</loc>
+    <lastmod>2026-01-27</lastmod>
+    <priority>0.70</priority>
+  </url>
+
+  <url>
+    <loc>https://lumina-port201.netlify.app/privacy.html</loc>
+    <lastmod>2026-01-27</lastmod>
+    <priority>0.40</priority>
+  </url>
+
+    <url>
+    <loc>https://lumina-port201.netlify.app/security-policy.html</loc>
+    <lastmod>2026-01-27</lastmod>
+    <priority>0.40</priority>
+  </url>
+
+    <url>
+    <loc>https://lumina-port201.netlify.app/hall-of-fame.html</loc>
+    <lastmod>2026-01-27</lastmod>
+    <priority>0.40</priority>
+  </url>
+
+  <url>
+    <loc>https://lumina-port201.netlify.app/career.html</loc>
+    <lastmod>2026-01-27</lastmod>
+    <priority>0.60</priority>
+  </url>
+
+  <url>
+    <loc>https://lumina-port201.netlify.app/action/checkout.html</loc>
+    <lastmod>2026-01-27</lastmod>
+    <priority>0.85</priority>
+  </url>
+
+  <url>
+    <loc>https://lumina-port201.netlify.app/action/thanks.html</loc>
+    <lastmod>2026-01-27</lastmod>
+    <priority>0.50</priority>
+  </url>
+
+</urlset>

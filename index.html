@@ -1,0 +1,242 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lumina | Web Solutions</title>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="icon" href="img/icon.png">
+    <script src="https://kit.fontawesome.com/ea0adb97da.js" crossorigin="anonymous"></script>
+</head>
+<body>
+
+    <nav>
+        <div class="container">
+            <a href="#"><div class="logo">LUMINA.</div></a>
+            
+            <div class="hamburger" id="hamburger">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+
+            <ul class="nav-links" id="nav-links">
+                <li><a href="#home">Home</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="#features">Features</a></li>
+                <li><a href="#pricing">Pricing</a></li>
+                <li><a href="blog.htm">Blog</a></li> 
+                <li><a href="#contact">Contact</a></li>
+                <li class="nav-btn-group">
+                    <a href="#" class="btn btn-sm">Sign Up</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <header class="hero" id="home">
+        <div class="container">
+            <div class="hero-content reveal">
+                <h1 id="typewriter"></h1>
+                <p>We provide the ultimate infrastructure for your digital transformation. Secure, scalable, and beautifully designed.</p>
+                <a href="#pricing" class="btn">Get Started</a>
+                <a href="#about" class="btn btn-outline">Learn More</a>
+            </div>
+        </div>
+    </header>
+
+    <section class="section-padding features" id="features">
+        <div class="container">
+            <div class="section-header reveal">
+                <h2>Premium Features</h2>
+                <p>Everything you need to manage your business effectively in one place.</p>
+            </div>
+            <div class="feature-grid">
+                <div class="feature-card reveal">
+                    <div class="icon-box">🚀</div>
+                    <h3>Fast Performance</h3>
+                    <p>Optimized for speed to ensure your customers never have to wait.</p>
+                </div>
+                <div class="feature-card reveal">
+                    <div class="icon-box">🛡️</div>
+                    <h3>Secure Data</h3>
+                    <p>Enterprise-grade security encryption to keep your data safe.</p>
+                </div>
+                <div class="feature-card reveal">
+                    <div class="icon-box">📊</div>
+                    <h3>Real-time Analytics</h3>
+                    <p>Track your growth with our advanced dashboard and reporting tools.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section-padding about" id="about">
+        <div class="container">
+            <div class="about-wrapper">
+                <div class="about-img reveal">
+                    <img src="img/about.jpg" alt="Team working">
+                </div>
+                <div class="about-text reveal">
+                    <h4 style="color:var(--primary); font-weight:700;">ABOUT US</h4>
+                    <h2>We Build Future Tech</h2>
+                    <p style="margin-bottom: 20px; color: var(--text-gray);">
+                        At Lumina, we believe in the power of technology to transform lives. Our team of experts is dedicated to creating software that is not only functional but also intuitive and beautiful.
+                    </p>
+                    <ul style="list-style: none; margin-bottom: 30px; line-height: 2;">
+                        <li>✔️ Certified Developers</li>
+                        <li>✔️ 24/7 Global Support</li>
+                        <li>✔️ Award Winning Strategy</li>
+                    </ul>
+                    <a href="about.html" class="btn">Read Our Story</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="stats">
+        <div class="container">
+            <div class="stats-grid">
+                <div class="stat-item">
+                    <h3 class="counter" data-target="500">0</h3>
+                    <p>Happy Clients (+)</p>
+                </div>
+                <div class="stat-item">
+                    <h3 class="counter" data-target="98">0</h3>
+                    <p>Retention Rate (%)</p>
+                </div>
+                <div class="stat-item">
+                    <h3 class="counter" data-target="1000">0</h3>
+                    <p>Projects Done (+)</p>
+                </div>
+                <div class="stat-item">
+                    <h3 class="counter" data-target="50">0</h3>
+                    <p>Awards Won (+)</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section-padding" id="pricing">
+        <div class="container">
+            <div class="section-header reveal">
+                <h2>Simple Pricing</h2>
+                <p>Choose the plan that fits your business needs.</p>
+            </div>
+            <div class="pricing-grid">
+                <div class="price-card reveal">
+                    <h3>Starter</h3>
+                    <div class="price">$29<span>/mo</span></div>
+                    <ul class="features-list">
+                        <li>5 Projects</li>
+                        <li>Basic Analytics</li>
+                        <li>Email Support</li>
+                        <li>Community Access</li>
+                    </ul>
+                    <a href="action/checkout.html?plan=Basic" class="btn btn-outline">Choose Plan</a>
+                </div>
+                <div class="price-card featured reveal">
+                    <div style="background:var(--primary); color:white; display:inline-block; padding:5px 15px; border-radius:20px; font-size:0.8rem; margin-bottom:10px;">POPULAR</div>
+                    <h3>Professional</h3>
+                    <div class="price">$99<span>/mo</span></div>
+                    <ul class="features-list">
+                        <li>7 Projects</li>
+                        <li>Advanced Analytics</li>
+                        <li>Priority Support</li>
+                        <li>Team Collaboration</li>
+                    </ul>
+                    <a href="action/checkout.html?plan=Pro" class="btn">Choose Plan</a>
+                </div>
+                <div class="price-card reveal">
+                    <h3>Enterprise</h3>
+                    <div class="price">$299<span>/mo</span></div>
+                    <ul class="features-list">
+                        <li>Custom Solutions</li>
+                        <li>AI Integration</li>
+                        <li>Dedicated Manager</li>
+                        <li>API Access</li>
+                    </ul>
+                    <a href="action/checkout.html?plan=Enterprise" class="btn btn-outline">Choose Plan</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section-padding contact" id="contact">
+        <div class="container">
+            <div class="section-header reveal">
+                <h2>Get In Touch</h2>
+                <p>Ready to start your project? Send us a message.</p>
+            </div>
+
+            <iframe name="hidden_iframe" id="hidden_iframe" style="display:none;" onload="if(submitted) {window.location='#'}"></iframe>
+
+            <form style="max-width: 600px; margin: auto;" 
+              id="contactForm" 
+              action="https://docs.google.com/forms/d/e/1FAIpQLSd81tJo0vrUVvA6qQ5rn4afkwJcoOWKdmarjuNYzT7q5A-lAA/formResponse" 
+              method="POST" onsubmit="submitted=true; showSuccess();" target="_blank">
+                <div class="form-group">
+                    <input type="text" name="entry.2005620554" id="name_field" placeholder="Full Name" required>
+                    <input type="email" name="entry.1045781291" placeholder="Email Address" required>
+                </div>
+                <input type="text" placeholder="Subject" name="entry.1065046570" style="margin-bottom: 20px;">
+                <textarea rows="5" name="entry.839337160" placeholder="Your Message" style="margin-bottom: 20px;"></textarea>
+                <button type="submit" class="btn" style="width: 100%;">Send Message</button>
+            </form>
+            <iframe name="hidden_iframe" id="hidden_iframe" style="display:none;"></iframe>
+            <div id="successMsg" style="display:none; color: #4F46E5; text-align: center; margin-top: 20px; font-weight: bold;">
+   
+            </div>
+         </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <div class="logo" style="margin-bottom: 20px;">LUMINA.</div>
+                    <p>Making the web a better place, one pixel at a time.</p>
+                </div>
+                <div class="footer-col">
+                    <h4>Company</h4>
+                    <ul>
+                        <li><a href="about.html">About</a></li>
+                        <li><a href="carrer.html">Careers</a></li>
+                        <li><a href="blog.htm">Blog</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Resources</h4>
+                    <ul>
+                        <li><a href="about.html">Documentation</a></li>
+                        <li><a href="javascript:void(0)" onclick="openHelp()">Help Center</a></li>
+                        <li><a href="privacy.html">Privacy</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Social</h4>
+                    <ul>
+                        <li><a href="https://x.com" id="tw" target="_blank" nofollow>Twitter</a></li>
+                        <li><a href="https://linkedin.com" id="lin" target="_blank">LinkedIn</a></li>
+                        <li><a href="https://instagram.com" id="inst" target="_blank">Instagram</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>&copy; 2024 Lumina Inc. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <a href="#" class="to-top">
+        <i class="fas fa-chevron-up"></i>
+    </a>
+
+    <script src="js/script.js">
+    </script>
+    <script src="js/to-top.js"></script>
+
+</body>
+</html>
