@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Order Confirmed - Lumina UI</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/ea0adb97da.js" crossorigin="anonymous"></script>
+    <link rel="icon" href="../img/icon.png">
+    <style>
+        :root { --primary: #4F46E5; --text: #1f2937; --light-text: #6b7280; --border: #e5e7eb; }
+        
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f3f4f6;
+            margin: 0;
+            padding: 40px 20px;
+            color: var(--text);
+        }
+
+        .invoice-container {
+            max-width: 800px;
+            margin: 0 auto;
+            background: white;
+            padding: 50px;
+            border-radius: 16px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+            position: relative;
+            overflow: hidden;
+        }
+
+        /* হেডার ডিজাইন */
+        .success-header { text-align: center; margin-bottom: 40px; }
+        .icon-circle {
+            width: 80px; height: 80px; background: #dcfce7; color: #16a34a;
+            border-radius: 50%; display: flex; align-items: center; justify-content: center;
+            font-size: 40px; margin: 0 auto 20px auto;
+        }
+        h1 { margin: 0; color: var(--text); font-size: 28px; }
+        .subtitle { color: var(--light-text); margin-top: 10px; }
+
+        /* অর্ডার ডিটেইলস গ্রিড */
+        .details-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            margin-bottom: 40px;
+            border-top: 2px dashed var(--border);
+            border-bottom: 2px dashed var(--border);
+            padding: 30px 0;
+        }
+
+        .label { font-size: 13px; text-transform: uppercase; color: var(--light-text); font-weight: 600; letter-spacing: 0.5px; margin-bottom: 8px; }
+        .value { font-size: 16px; font-weight: 500; color: var(--text); line-height: 1.6; }
+
+        /* পেমেন্ট বক্স */
+        .payment-summary {
+            background: #f9fafb;
+            border-radius: 12px;
+            padding: 25px;
+            margin-bottom: 30px;
+        }
+        .row { display: flex; justify-content: space-between; margin-bottom: 12px; font-size: 15px; }
+        .total { border-top: 1px solid #d1d5db; padding-top: 15px; margin-top: 15px; font-weight: 700; font-size: 18px; color: var(--primary); }
+
+        /* বাটন */
+        .btn-group { display: flex; gap: 15px; justify-content: center; margin-top: 30px; }
+        .btn { padding: 12px 25px; border-radius: 8px; font-weight: 600; cursor: pointer; text-decoration: none; transition: 0.3s; display: inline-flex; align-items: center; gap: 8px; }
+        .btn-primary { background: var(--primary); color: white; border: none; }
+        .btn-primary:hover { background: #4338ca; }
+        .btn-outline { background: transparent; border: 1px solid #d1d5db; color: var(--text); }
+        .btn-outline:hover { background: #f3f4f6; }
+
+        @media print {
+            body { background: white; padding: 0; }
+            .invoice-container { box-shadow: none; border: none; }
+            .btn-group { display: none; }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="invoice-container" id="invoice">
+        <div class="success-header">
+            <div class="icon-circle"><i class="fas fa-check"></i></div>
+            <h1>Order Placed Successfully!</h1>
+            <p class="subtitle">Thank you, <span id="userNameHeader">User</span>! Here is your order receipt.</p>
+        </div>
+
+        <div class="details-grid">
+            <div>
+                <div class="label">Customer Details</div>
+                <div class="value" id="userName">Anaf Alam</div>
+                <div class="value" id="userEmail">anaf@example.com</div>
+                <div class="value" id="userPhone">+880 1700000000</div>
+                <div class="value" id="userLocation">Dhaka, Bangladesh</div>
+            </div>
+            <div style="text-align: right;">
+                <div class="label">Order Info</div>
+                <div class="value">Order ID: <span style="color:var(--primary);">#LUM-<span id="orderId">8293</span></span></div>
+                <div class="value">Date: <span id="orderDate">27 Jan, 2026</span></div>
+                <div class="value">Payment Method: <span id="payMethod">Visa</span></div>
+                <div class="value" style="font-size: 14px; color: #6b7280; margin-top:5px;">TRX: <span id="trxId">N/A</span></div>
+            </div>
+        </div>
+
+        <div class="label" style="margin-bottom: 15px;">Plan Summary</div>
+        <div class="payment-summary">
+            <div class="row">
+                <span id="planName">Basic Plan Subscription</span>
+                <span id="planPrice">$29.00</span>
+            </div>
+            <div class="row">
+                <span>Tax & VAT (0%)</span>
+                <span>$0.00</span>
+            </div>
+            <div class="row">
+                <span>Platform Fee</span>
+                <span>$0.00</span>
+            </div>
+            <div class="row total">
+                <span>Total Amount Paid</span>
+                <span id="totalPrice">$29.00</span>
+            </div>
+        </div>
+
+        <div id="additionalInfoBox" style="background: #fffbeb; padding: 15px; border-radius: 8px; border: 1px solid #fcd34d; display: none;">
+            <div class="label" style="color: #b45309; margin-bottom: 5px;">Your Note:</div>
+            <p id="userNote" style="margin: 0; font-size: 14px; color: #78350f;">No notes.</p>
+        </div>
+
+        <div class="btn-group">
+            <a href="../index.html" class="btn btn-outline"><i class="fas fa-home"></i> Home</a>
+            <button onclick="window.print()" class="btn btn-primary"><i class="fas fa-print"></i> Download / Print</button>
+        </div>
+    </div>
+
+    <script>
+        // লোকাল স্টোরেজ থেকে ডাটা আনা
+        const data = JSON.parse(localStorage.getItem('luminaOrder'));
+
+        if (data) {
+            // ডাটা পেজে বসানো
+            document.getElementById('userNameHeader').innerText = data.name.split(" ")[0]; // শুধু প্রথম নাম
+            document.getElementById('userName').innerText = data.name;
+            document.getElementById('userEmail').innerText = data.email;
+            document.getElementById('userPhone').innerText = data.phone;
+            document.getElementById('userLocation').innerText = data.city + ", " + data.country;
+            
+            document.getElementById('payMethod').innerText = data.method.toUpperCase();
+            document.getElementById('trxId').innerText = data.trx || "N/A";
+
+            document.getElementById('planName').innerText = data.plan + " Plan Subscription";
+            document.getElementById('planPrice').innerText = data.price;
+            document.getElementById('totalPrice').innerText = data.price;
+
+            // অ্যাডিশনাল নোট থাকলে দেখানো
+            if (data.info && data.info.trim() !== "") {
+                document.getElementById('additionalInfoBox').style.display = 'block';
+                document.getElementById('userNote').innerText = data.info;
+            }
+
+            // র‍্যান্ডম অর্ডার আইডি এবং তারিখ
+            document.getElementById('orderId').innerText = Math.floor(100000 + Math.random() * 900000);
+            
+            const date = new Date();
+            document.getElementById('orderDate').innerText = date.toLocaleDateString("en-US", { 
+                year: 'numeric', month: 'short', day: 'numeric' 
+            });
+
+        } else {
+            // ডাটা না পেলে হোমপেজে পাঠিয়ে দেওয়া (সিকিউরিটি)
+            // window.location.href = 'index.html';
+            document.querySelector('.invoice-container').innerHTML = "<h2 style='text-align:center'>No Order Found!</h2><div style='text-align:center'><a href='index.html'>Go Home</a></div>";
+        }
+    </script>
+
+</body>
+</html>

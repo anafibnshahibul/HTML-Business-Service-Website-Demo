@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lumina Premium Checkout</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../css/acc.css">
+    <link rel="icon" href="../img/icon.png">
+    <script src="https://kit.fontawesome.com/ea0adb97da.js" crossorigin="anonymous"></script>
+    <style>
+        :root {
+            --primary: #4F46E5;
+            --bg-color: #f3f4f6;
+            --text-dark: #1f2937;
+            --text-light: #6b7280;
+            --white: #ffffff;
+        }
+
+        body { font-family: 'Inter', sans-serif; background-color: var(--bg-color); margin: 0; padding: 40px 20px; color: var(--text-dark); }
+        .container { max-width: 1100px; margin: 0 auto; display: grid; grid-template-columns: 1.5fr 1fr; gap: 30px; }
+        .card { background: var(--white); padding: 30px; border-radius: 16px; box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05); }
+        h2 { margin-top: 0; border-bottom: 2px solid #e5e7eb; padding-bottom: 15px; margin-bottom: 25px; font-size: 22px; }
+        
+        .form-group { margin-bottom: 20px; }
+        .row { display: flex; gap: 20px; }
+        .col { flex: 1; }
+        label { display: block; margin-bottom: 8px; font-weight: 500; font-size: 14px; }
+        input, select, textarea { width: 100%; padding: 12px 15px; border: 1px solid #d1d5db; border-radius: 8px; font-size: 15px; background: #f9fafb; transition: 0.3s; box-sizing: border-box; }
+        input:focus, select:focus, textarea:focus { outline: none; border-color: var(--primary); background: #fff; box-shadow: 0 0 0 3px rgba(79, 70, 229, 0.1); }
+
+        /* Order Summary & Image */
+        .order-summary { position: sticky; top: 20px; height: fit-content; border: 1px solid #e5e7eb; }
+        
+        /* নতুন ইমেজের স্টাইল */
+        .plan-image {
+            width: 100%;
+            height: 180px;
+            object-fit: cover;
+            border-radius: 10px;
+            margin-bottom: 20px;
+            background-color: #e0e7ff;
+            transition: all 0.5s ease;
+        }
+
+        .summary-row { display: flex; justify-content: space-between; margin-bottom: 10px; color: var(--text-light); font-size: 15px; }
+        .total-row { display: flex; justify-content: space-between; margin-top: 20px; padding-top: 20px; border-top: 2px dashed #e5e7eb; font-weight: 700; font-size: 20px; }
+        .price-tag { color: var(--primary); }
+
+        .checkout-btn { width: 100%; padding: 16px; background: var(--primary); color: white; border: none; border-radius: 10px; font-size: 16px; font-weight: 600; cursor: pointer; transition: 0.3s; margin-top: 20px; }
+        .checkout-btn:hover { background-color: #4338ca; transform: translateY(-2px); }
+
+        @media (max-width: 768px) { .container { grid-template-columns: 1fr; } .row { flex-direction: column; gap: 0; } }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <div class="card">
+        <h2>Customer Information</h2>
+        <form id="checkoutForm" action="https://docs.google.com/forms/u/0/d/e/1FAIpQLSdJ0zR0_NiNII-bcenV6V_LBKA7ySRaPcsGP4Yt1s7ykb11mA/formResponse" method="POST" target="hidden_iframe">
+            
+            <div class="form-group">
+                <label>Selected Plan</label>
+                <select name="entry.1862601165" id="planSelect" required onchange="updateSummary()">
+                    <option value="Basic">Basic Plan - $29/mo</option>
+                    <option value="Pro">Pro Plan - $99/mo</option>
+                    <option value="Enterprise">Enterprise Plan - $299/mo</option>
+                </select>
+            </div>
+
+            <div class="row">
+                <div class="col form-group">
+                    <label>Full Name</label>
+                    <input type="text" name="entry.555947137" placeholder="Your Name" required>
+                </div>
+                <div class="col form-group">
+                    <label>Phone Number</label>
+                    <input type="tel" name="entry.448292830" placeholder="01xxxxxxxxx" required>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label>Email Address</label>
+                <input type="email" name="entry.375338508" placeholder="you@example.com" required>
+            </div>
+
+            <div class="row">
+                <div class="col form-group">
+                    <label>City</label>
+                    <input type="text" name="entry.4397488" placeholder="Dhaka" required>
+                </div>
+                <div class="col form-group">
+                    <label>Postal Code</label>
+                    <input type="text" name="entry.1233872599" placeholder="1216" required>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label>Country</label>
+                <input type="text" name="entry.1873992283" value="Bangladesh" required>
+            </div>
+
+            <div class="form-group">
+                <label>Payment Method</label>
+                <select name="entry.1239817009" required>
+                    <option value="Paypal">Paypal</option>
+                    <option value="Visa">Visa Card</option>
+                    <option value="Card">Credit / Debit Card</option>
+                    <option value="Coffee">Buy me a coffee</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label>Payment Info</label>
+                <input type="text" name="entry.1686663637" placeholder="Paypal email, Card detail or other">
+            </div>
+
+            <div class="form-group">
+                <label>Additional Information (Optional)</label>
+                <textarea name="entry.1478979273" rows="4" placeholder="Any special notes for us?"></textarea>
+            </div>
+
+            <button type="submit" class="checkout-btn">Confirm Order</button>
+        </form>
+    </div>
+
+    <div class="card order-summary">
+        <h3>Order Summary</h3>
+        
+        <img src="https://placehold.co/600x400/4F46E5/FFF?text=Basic+Plan" id="plan-img-display" class="plan-image" alt="Plan Image">
+
+        <div class="summary-row">
+            <span id="summary-plan-name">Basic Plan</span>
+            <span id="summary-plan-price">$29</span>
+        </div>
+        <div class="summary-row">
+            <span>Tax (0%)</span>
+            <span>$0.00</span>
+        </div>
+        <div class="summary-row">
+            <span>Service Charge</span>
+            <span>$0.00</span>
+        </div>
+
+        <div class="total-row">
+            <span>Total</span>
+            <span class="price-tag" id="summary-total">$29</span>
+        </div>
+
+        <p style="font-size: 12px; color: #6b7280; margin-top: 15px; text-align: center;">
+            🔒 Secure Checkout powered by Lumina UI
+        </p>
+    </div>
+</div>
+
+<iframe name="hidden_iframe" id="hidden_iframe" style="display:none;" onload="if(submitted) {window.location='thanks.html';}"></iframe>
+
+<script>
+    var submitted = false;
+
+    // ১. ফর্ম সাবমিট হলে ডাটা সেভ করা
+    document.getElementById('checkoutForm').onsubmit = function() {
+        submitted = true;
+        
+        // সব ইনপুট থেকে ডাটা নিয়ে একটি অবজেক্ট বানানো
+        const orderData = {
+            plan: document.getElementById('planSelect').value,
+            name: document.querySelector('input[name="entry.555947137"]').value,
+            phone: document.querySelector('input[name="entry.448292830"]').value,
+            email: document.querySelector('input[name="entry.375338508"]').value,
+            city: document.querySelector('input[name="entry.4397488"]').value,
+            address: document.querySelector('input[name="entry.1233872599"]').value, // Postal Code field used as address part mostly, adapt if needed
+            country: document.querySelector('input[name="entry.1873992283"]').value,
+            method: document.querySelector('select[name="entry.1239817009"]').value,
+            trx: document.querySelector('input[name="entry.1686663637"]').value,
+            info: document.querySelector('textarea[name="entry.1478979273"]').value,
+            price: document.getElementById('summary-total').innerText
+        };
+
+        // ব্রাউজারের মেমোরিতে (Local Storage) ডাটা সেভ করা
+        localStorage.setItem('luminaOrder', JSON.stringify(orderData));
+    };
+
+    // ২. প্ল্যান ও ইমেজ লজিক (তোমার আগের কোড)
+    const plans = {
+        'Basic': { price: 29, img: 'https://placehold.co/600x400/4F46E5/FFF?text=Basic+Plan' },
+        'Pro': { price: 99, img: 'https://placehold.co/600x400/10b981/FFF?text=Pro+Plan' },
+        'Enterprise': { price: 299, img: 'https://placehold.co/600x400/f59e0b/FFF?text=Enterprise+Plan' }
+    };
+
+    function updateSummary() {
+        const selectBox = document.getElementById('planSelect');
+        const selectedValue = selectBox.value;
+        const planData = plans[selectedValue];
+
+        document.getElementById('summary-plan-name').innerText = selectedValue + " Plan";
+        document.getElementById('summary-plan-price').innerText = "$" + planData.price + ".00";
+        document.getElementById('summary-total').innerText = "$" + planData.price + ".00";
+        document.getElementById('plan-img-display').src = planData.img;
+    }
+    
+    // পেজ লোড হলে চেক করা
+    const urlParams = new URLSearchParams(window.location.search);
+    const preSelectedPlan = urlParams.get('plan');
+    if (preSelectedPlan && plans[preSelectedPlan]) {
+        document.getElementById('planSelect').value = preSelectedPlan;
+        updateSummary();
+    }
+</script>
+
+<script src="../js/custom.html.jsx"></script>
+<script src="../js/script.js"></script>
+<script src="../js/to-top.js"></script>
+
+</body>
+</html>
