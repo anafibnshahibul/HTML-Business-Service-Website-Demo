@@ -29,6 +29,19 @@ Lumina is not just a website; it's a complete business solution. This repository
 ```text
 ├── index.html          # Main Business Landing Page
 ├── about.html          # Company Information Page
+├── blog.htm            # Blog Page
+├── hall-to-fame.html
+├── seo.htm             # A Blog 
+├── future2026.html     # A Blog 
+├── sass.html           # A Blog
+├── LICENSE             # License
+├── robots.txt          # Robots Instruction
+├── carrer.html         # Join to Misson or Job Apply
+├── manifest.json       # Web to App
+├── sitemap.xml         # Sitemap
+├── sitemap-style.xls   # Sitemap Amazing Style
+├── aud.html            # Fake Audit System
+├── humans.txt          # Human Information  
 ├── admin.html          # Security Gateway
 ├── dashboard.html      # Protected Admin Panel
 ├── js/
@@ -39,5 +52,7 @@ Lumina is not just a website; it's a complete business solution. This repository
 │   └── custom.html.jsx # Custom HTML Tag         
 └── css/
 |    └── style.css       # Global Styles & Animations
-|   └── style.min.css   # For the fake audit system
-│   └── acc.css         # For Dashboard Design 
+|    └── style.min.css   # For the fake audit system
+│    └── acc.css         # For Dashboard Design 
+└── img/
+├── All images
