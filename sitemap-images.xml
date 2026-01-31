@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="/sitemap-style.xsl"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
+
+  <url>
+    <loc>https://lumina-port.netlify.app/</loc>
+    <image:image>
+      <image:loc>https://lumina-port.netlify.app/img/icon.png</image:loc>
+      <image:title>Lumina Icon</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://lumina-port.netlify.app/img/about.jpg</image:loc>
+      <image:title>About Lumina</image:title>
+    </image:image>
+  </url>
+
+  <url>
+    <loc>https://lumina-port.netlify.app/about.html</loc>
+    <image:image>
+      <image:loc>https://lumina-port.netlify.app/img/alex.avif</image:loc>
+      <image:title>Team Member Alex</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://lumina-port.netlify.app/img/emili.avif</image:loc>
+      <image:title>Team Member Emili</image:title>
+    </image:image>
+  </url>
+</urlset>
