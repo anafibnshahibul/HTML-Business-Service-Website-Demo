@@ -1,82 +1,71 @@
 <?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="sitemap-style.xsl"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 
   <url>
     <loc>https://lumina-port.netlify.app/</loc>
-    <lastmod>2026-01-27</lastmod>
+    <lastmod>2026-01-31</lastmod>
     <priority>1.00</priority>
   </url>
 
   <url>
     <loc>https://lumina-port.netlify.app/about.html</loc>
-    <lastmod>2026-01-27</lastmod>
+    <lastmod>2026-01-31</lastmod>
     <priority>0.80</priority>
-  </url>
-
-    <url>
-    <loc>https://lumina-port.netlify.app/aud.html</loc>
-    <lastmod>2026-01-27</lastmod>
-    <priority>0.40</priority>
   </url>
 
   <url>
     <loc>https://lumina-port.netlify.app/seo.htm</loc>
-    <lastmod>2026-01-27</lastmod>
+    <lastmod>2026-01-31</lastmod>
     <priority>0.90</priority>
   </url>
 
-    <url>
+  <url>
     <loc>https://lumina-port.netlify.app/future2026.html</loc>
-    <lastmod>2026-01-27</lastmod>
+    <lastmod>2026-01-31</lastmod>
     <priority>0.90</priority>
   </url>
 
   <url>
     <loc>https://lumina-port.netlify.app/saas.html</loc>
-    <lastmod>2026-01-27</lastmod>
+    <lastmod>2026-01-31</lastmod>
     <priority>0.90</priority>
   </url>
 
   <url>
-    <loc>https://lumina-port.netlify.app/blog.htm</loc>
-    <lastmod>2026-01-27</lastmod>
-    <priority>0.70</priority>
-  </url>
-
-  <url>
-    <loc>https://lumina-port.netlify.app/privacy.html</loc>
-    <lastmod>2026-01-27</lastmod>
-    <priority>0.40</priority>
-  </url>
-
-    <url>
-    <loc>https://lumina-port.netlify.app/security-policy.html</loc>
-    <lastmod>2026-01-27</lastmod>
-    <priority>0.40</priority>
-  </url>
-
-    <url>
-    <loc>https://lumina-port.netlify.app/hall-of-fame.html</loc>
-    <lastmod>2026-01-27</lastmod>
-    <priority>0.40</priority>
-  </url>
-
-  <url>
-    <loc>https://lumina-port.netlify.app/career.html</loc>
-    <lastmod>2026-01-27</lastmod>
-    <priority>0.60</priority>
-  </url>
-
-  <url>
     <loc>https://lumina-port.netlify.app/action/checkout.html</loc>
-    <lastmod>2026-01-27</lastmod>
+    <lastmod>2026-01-31</lastmod>
     <priority>0.85</priority>
   </url>
 
   <url>
-    <loc>https://lumina-port.netlify.app/action/thanks.html</loc>
-    <lastmod>2026-01-27</lastmod>
-    <priority>0.50</priority>
+    <loc>https://lumina-port.netlify.app/blog.htm</loc>
+    <lastmod>2026-01-31</lastmod>
+    <priority>0.70</priority>
+  </url>
+
+  <url>
+    <loc>https://lumina-port.netlify.app/career.html</loc>
+    <lastmod>2026-01-31</lastmod>
+    <priority>0.60</priority>
+  </url>
+
+  <url>
+    <loc>https://lumina-port.netlify.app/aud.html</loc>
+    <lastmod>2026-01-31</lastmod>
+    <priority>0.40</priority>
+  </url>
+
+  <url>
+    <loc>https://lumina-port.netlify.app/privacy.html</loc>
+    <lastmod>2026-01-31</lastmod>
+    <priority>0.40</priority>
+  </url>
+
+  <url>
+    <loc>https://lumina-port.netlify.app/security-policy.html</loc>
+    <lastmod>2026-01-31</lastmod>
+    <priority>0.40</priority>
   </url>
 
 </urlset>
