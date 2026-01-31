@@ -29,7 +29,6 @@
             overflow: hidden;
         }
 
-        /* হেডার ডিজাইন */
         .success-header { text-align: center; margin-bottom: 40px; }
         .icon-circle {
             width: 80px; height: 80px; background: #dcfce7; color: #16a34a;
@@ -39,7 +38,6 @@
         h1 { margin: 0; color: var(--text); font-size: 28px; }
         .subtitle { color: var(--light-text); margin-top: 10px; }
 
-        /* অর্ডার ডিটেইলস গ্রিড */
         .details-grid {
             display: grid;
             grid-template-columns: 1fr 1fr;
@@ -53,7 +51,6 @@
         .label { font-size: 13px; text-transform: uppercase; color: var(--light-text); font-weight: 600; letter-spacing: 0.5px; margin-bottom: 8px; }
         .value { font-size: 16px; font-weight: 500; color: var(--text); line-height: 1.6; }
 
-        /* পেমেন্ট বক্স */
         .payment-summary {
             background: #f9fafb;
             border-radius: 12px;
@@ -136,11 +133,9 @@
     </div>
 
     <script>
-        // লোকাল স্টোরেজ থেকে ডাটা আনা
         const data = JSON.parse(localStorage.getItem('luminaOrder'));
 
         if (data) {
-            // ডাটা পেজে বসানো
             document.getElementById('userNameHeader').innerText = data.name.split(" ")[0]; // শুধু প্রথম নাম
             document.getElementById('userName').innerText = data.name;
             document.getElementById('userEmail').innerText = data.email;
@@ -154,13 +149,11 @@
             document.getElementById('planPrice').innerText = data.price;
             document.getElementById('totalPrice').innerText = data.price;
 
-            // অ্যাডিশনাল নোট থাকলে দেখানো
             if (data.info && data.info.trim() !== "") {
                 document.getElementById('additionalInfoBox').style.display = 'block';
                 document.getElementById('userNote').innerText = data.info;
             }
 
-            // র‍্যান্ডম অর্ডার আইডি এবং তারিখ
             document.getElementById('orderId').innerText = Math.floor(100000 + Math.random() * 900000);
             
             const date = new Date();
@@ -169,8 +162,7 @@
             });
 
         } else {
-            // ডাটা না পেলে হোমপেজে পাঠিয়ে দেওয়া (সিকিউরিটি)
-            // window.location.href = 'index.html';
+            window.location.href = 'index.html';
             document.querySelector('.invoice-container').innerHTML = "<h2 style='text-align:center'>No Order Found!</h2><div style='text-align:center'><a href='index.html'>Go Home</a></div>";
         }
     </script>

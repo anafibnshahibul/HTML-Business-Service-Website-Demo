@@ -177,14 +177,12 @@
             nav .nav-links { display: none; } /* Simplified for mobile */
         }
 
-        /* ১. স্ক্রল করলে ন্যাভিগেশন বারের ব্যাকগ্রাউন্ড গাঢ় হবে */
         nav.sticky {
             background: rgba(255, 255, 255, 1);
             box-shadow: 0 5px 20px rgba(0,0,0,0.1);
-            padding: 15px 0; /* একটু ছোট হবে */
+            padding: 15px 0; 
         }
 
-        /* ২. টাইপিং কার্সার */
         #typewriter {
             border-right: 3px solid var(--primary);
             padding-right: 5px;
