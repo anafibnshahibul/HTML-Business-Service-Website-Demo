@@ -181,3 +181,35 @@ window.onhashchange = function() {
         }
     };
 })();
+
+let generatedOTP = "";
+
+function startLoginProcess() {
+    
+    generatedOTP = Math.floor(100000 + Math.random() * 900000).toString();
+    
+    const templateParams = {
+        to_email: 'shahabulalamovi@gmail.com',
+        otp: generatedOTP,
+        user_name: 'Anaf'
+    };
+
+    emailjs.send('service_ockiqb3', 'YOUR_TEMPLATE_ID', templateParams)
+        .then(function() {
+            alert("OTP has been sent to your email!");
+            document.getElementById('login-form-fields').style.display = 'none';
+            document.getElementById('otp-area').style.display = 'block';
+        }, function(error) {
+            alert("There was a problem sending OTP. Check if the service ID is correct.");
+        });
+}
+
+function verifyOTP() {
+    const userEnteredOTP = document.getElementById('otp-input').value;
+    if (userEnteredOTP === generatedOTP) {
+        alert("Login successfully!");
+        window.location.href = "dashboard.html";
+    } else {
+        alert("Wrong OTP!!!!");
+    }
+}
