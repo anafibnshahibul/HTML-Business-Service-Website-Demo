@@ -32,6 +32,15 @@
         } else {
             const errBox = document.getElementById('err');
             if (errBox) errBox.style.display = 'block';
+            // This goes inside your handleLogin function after p === _authData.p
+            if (_u === _authData.u && _p === _authData.p) {
+                // Show the 2FA section
+                document.getElementById('login-fields').style.display = 'none';
+                document.getElementById('otp-area').style.display = 'block';
+                
+                // Set a hidden PIN for verification
+                window.secretPin = "9900";
+            }
         }
     };
 
@@ -181,35 +190,22 @@ window.onhashchange = function() {
         }
     };
 })();
+// --- ANTI-HACKER PROTECTION ---
+    // Disable Right-Click
+    document.addEventListener('contextmenu', e => e.preventDefault());
 
-let generatedOTP = "";
-
-function startLoginProcess() {
-    
-    generatedOTP = Math.floor(100000 + Math.random() * 900000).toString();
-    
-    const templateParams = {
-        to_email: 'shahabulalamovi@gmail.com',
-        otp: generatedOTP,
-        user_name: 'Anaf'
+    // Disable Inspect Element & View Source shortcuts
+    document.onkeydown = function(e) {
+        // F12, Ctrl+Shift+I, Ctrl+Shift+J, Ctrl+U
+        if (e.keyCode == 123 || 
+            (e.ctrlKey && e.shiftKey && (e.keyCode == 73 || e.keyCode == 74 || e.keyCode == 67)) || 
+            (e.ctrlKey && e.keyCode == 85)) {
+            return false;
+        }
     };
 
-    emailjs.send('service_ockiqb3', 'YOUR_TEMPLATE_ID', templateParams)
-        .then(function() {
-            alert("OTP has been sent to your email!");
-            document.getElementById('login-form-fields').style.display = 'none';
-            document.getElementById('otp-area').style.display = 'block';
-        }, function(error) {
-            alert("There was a problem sending OTP. Check if the service ID is correct.");
-        });
-}
-
-function verifyOTP() {
-    const userEnteredOTP = document.getElementById('otp-input').value;
-    if (userEnteredOTP === generatedOTP) {
-        alert("Login successfully!");
-        window.location.href = "dashboard.html";
-    } else {
-        alert("Wrong OTP!!!!");
-    }
-}
+    // Clear console to block snooping
+    setInterval(() => {
+        console.clear();
+        console.log("%cSecurity Active - Anaf's Lumina Core", "color: red; font-size: 20px; font-weight: bold;");
+    }, 1000);
