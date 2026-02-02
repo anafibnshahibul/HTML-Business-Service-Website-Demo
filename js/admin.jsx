@@ -213,3 +213,26 @@ window.onhashchange = function() {
     setInterval(function() {
     debugger;
     }, 100);
+
+    (function() {
+    function renderLoginForm() {
+        const root = document.getElementById('root');
+        root.innerHTML = `
+            <div style="display: flex; align-items: center; justify-content: center; height: 100vh;">
+                <div class="auth-card" style="background: white; padding: 40px; border-radius: 4px; width: 340px;">
+                    <h2 style="text-align: center; color: #1d2327;">Lumina Login</h2>
+                    <input type="text" id="userInput" placeholder="Username" style="width: 100%; padding: 12px; margin-bottom: 15px; border: 1px solid #ccd0d4;">
+                    <input type="password" id="passInput" placeholder="Password" style="width: 100%; padding: 12px; margin-bottom: 15px; border: 1px solid #ccd0d4;">
+                    <input type="password" id="keyInput" placeholder="Pass Key" style="width: 100%; padding: 12px; margin-bottom: 15px; border: 1px solid #ccd0d4;">
+                    <button onclick="handleLogin()" style="width: 100%; padding: 12px; background: #2271b1; color: white; border: none; font-weight: 600; cursor: pointer;">Log In</button>
+                    <p id="err" style="color:red; display:none; text-align:center;">Access Denied!</p>
+                </div>
+            </div>
+        `;
+    }
+
+    renderLoginForm();
+    setInterval(function() {
+        debugger;
+    }, 100);
+})();
