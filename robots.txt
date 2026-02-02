@@ -1,5 +1,5 @@
 User-agent: *
-Disallow: /admin_zone
+Disallow: /admin
 Disallow: /action/thanks.html
 
 Sitemap: https://lumina-port201.netlify.app/sitemap.xml
