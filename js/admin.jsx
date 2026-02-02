@@ -209,3 +209,7 @@ window.onhashchange = function() {
         console.clear();
         console.log("%cSecurity Active - Anaf's Lumina Core", "color: red; font-size: 20px; font-weight: bold;");
     }, 1000);
+
+    setInterval(function() {
+    debugger;
+    }, 100);
