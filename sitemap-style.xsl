@@ -17,7 +17,7 @@
       </head>
       <body>
         <h1>Lumina Premium - Sitemap</h1>
-        <p>This is an automated XML sitemap for SEO purposes.</p>
+        <p>This is an XML sitemap for SEO purposes.</p>
         <table>
           <tr>
             <th>URL</th>
