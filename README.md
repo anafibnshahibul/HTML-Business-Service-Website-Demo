@@ -7,6 +7,22 @@ Lumina is a high-end, multi-page business ecosystem designed for modern agencies
 
 ## ✨ Project Highlights
 
+
+<p align="center">
+  <img src="https://i.ibb.co.com/Q33yTgdW/image.jpg" 
+       alt="Project Image" 
+       border="5" 
+       style="border: 10px solid #333; padding: 5px; border-radius: 10px; width: 80%;">
+</p>
+
+<p align="center">
+  <a href="https://lumina-port.netlify.app" target="_blank">
+    <img src="https://img.shields.io/badge/LIVE_PREVIEW-Click_to_View-blue?style=for-the-badge&logo=google-chrome&logoColor=white" alt="Live Preview">
+  </a>
+</p>
+
+---
+
 ### 🏠 High-Converting Landing Page
 - **Next-Gen UI:** Professional design utilizing the 'Inter' typeface for maximum readability.
 - **Micro-Interactions:** CSS3 and JavaScript-driven entry animations that provide a premium user experience.
@@ -42,6 +58,43 @@ Lumina is built with a "Security-First" mindset to protect your intellectual pro
 - **Anti-Hacker Shield:** Fully disables Right-Click, `F12` (Developer Tools), `Ctrl+U` (View Source), and `Ctrl+S`.
 - **Domain Locking:** The script checks `window.location.hostname` and self-destructs if run on unauthorized domains.
 - **Debugger Trap:** Automatically pauses the browser if anyone attempts to inspect the code.
+
+## 🛠 Installation & Setup Guide
+
+Follow these steps to deploy and configure **Lumina Premium** on your machine or live server.
+
+### 1. Download & Extract
+* **Download:** Click the green **Code** button at the top of this repository.
+* **ZIP File:** Select **Download ZIP**.
+* **Extract:** Once downloaded, extract the `.zip` file to your preferred folder.
+* **Open:** Open the extracted folder using a code editor like **VS Code**.
+#### Or
+* **Clone the Repository:**
+  ```bash
+  git clone [https://github.com/your-username/lumina-premium.git](https://github.com/your-username/lumina-premium.git)
+
+### 2. Google Forms Integration (Database Setup)
+Lumina uses Google Forms to collect data without needing a complex backend database.
+1.  Go to [Google Forms](https://forms.google.com/) and create a new form.
+2.  Add fields matching the contact form (e.g., *Name, Email, Message*).
+3.  Click the three dots (top-right) and select **"Get pre-filled link"**.
+4.  Type dummy text in each field and click **Get Link**.
+5.  Copy the link and paste it into your browser. 
+6.  Look at the URL to find the **Entry IDs** (e.g., `entry.12345678`).
+
+### 3. Configure API & Entry IDs
+* Open `js/script.js` or your main logic file.
+* Find the Google Form submission section.
+* Replace the placeholder **Entry IDs** with your actual IDs from Step 2.
+* Update the Form Action URL: `https://docs.google.com/forms/d/e/YOUR_FORM_ID/formResponse`.
+
+### 4. Security & Deployment
+* **Admin Access:** Ensure your credentials in `js/admin.jsx` are correct.
+* **URL Masking:** If deploying on **Netlify**, ensure the `_redirects` file is in the root folder for `/admin` to work.
+* **Anti-Hacker:** Remember, Right-Click and View-Source are disabled. Always edit via your local IDE.
+
+### 5. Launch
+Simply open `index.html` in your browser. For the best experience, use the **Live Server** extension in VS Code.
 
 ---
 
