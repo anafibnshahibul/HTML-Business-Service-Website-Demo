@@ -71,7 +71,7 @@ Follow these steps to deploy and configure **Lumina Premium** on your machine or
 #### Or
 * **Clone the Repository:**
   ```bash
-  git clone [https://github.com/anafibnshahibul/lumina-premium.git](https://github.com/anafibnshahibul/lumina-premium.git)
+  git clone [https://github.com/anafibnshahibul/HTML-Business-Service-Website-Demo.git](https://github.com/anafibnshahibul/HTML-Business-Service-Website-Demo.git)
 
 ### 2. Google Forms Integration (Database Setup)
 Lumina uses Google Forms to collect data without needing a complex backend database.
