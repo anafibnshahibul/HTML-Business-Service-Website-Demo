@@ -16,7 +16,6 @@
     }
 
     // 2. OBFUSCATED CREDENTIALS
-    // Encrypted Admin Data: [Anaf, Lumina2026, 15229, lumina_auth, true]
     const _0x5f21 = ["\x41\x6e\x61\x66", "\x4c\x75\x6d\x69\x6e\x61\x32\x30\x32\x36", "\x31\x35\x32\x32\x39", "\x6c\x75\x6d\x69\x6e\x61\x5f\x61\x75\x74\x68", "\x74\x72\x75\x65"];
     const _authData = { u: _0x5f21[0], p: _0x5f21[1], k: _0x5f21[2] };
 
