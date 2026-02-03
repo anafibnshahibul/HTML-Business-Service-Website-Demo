@@ -2,6 +2,12 @@
 <?xml-stylesheet type="text/xsl" href="sitemap-style.xsl"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 
+<html>
+<head>
+<meta property="og:image" content="https://www.bluehost.com/blog/wp-content/uploads/2025/02/What-Is-a-Sitemap_-How-It-Helps-SEO-Navigation.png">
+</head>
+</html>
+
   <url>
     <loc>https://lumina-port.netlify.app/</loc>
     <lastmod>2026-01-31</lastmod>
