@@ -16,7 +16,7 @@ Lumina is a high-end, multi-page business ecosystem designed for modern agencies
 </p>
 
 <p align="center">
-  <a href="https://lumina-port.netlify.app" target="_blank">
+  <a href="https://lumina-port1.netlify.app" target="_blank">
     <img src="https://img.shields.io/badge/LIVE_PREVIEW-Click_to_View-blue?style=for-the-badge&logo=google-chrome&logoColor=white" alt="Live Preview">
   </a>
 </p>
