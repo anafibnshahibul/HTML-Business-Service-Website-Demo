@@ -3,11 +3,11 @@
 
 Contact: mailto:your-email@gmail.com
 Expires: 2027-01-01T00:00:00.000Z
-Encryption: https://lumina-port201.netlify.app/pgp-key.txt
-Acknowledgments: https://lumina-port201.netlify.app/hall-of-fame.html
+Encryption: https://lumina-port1.netlify.app/pgp-key.txt
+Acknowledgments: https://lumina-port1.netlify.app/hall-of-fame.html
 Preferred-Languages: en, bn
-Canonical: https://lumina-port201.netlify.app/.well-known/security.txt
-Policy: https://lumina-port201.netlify.app/security-policy.html
+Canonical: https://lumina-port1.netlify.app/.well-known/security.txt
+Policy: https://lumina-port1.netlify.app/security-policy.html
 
 # If you find a bug in Lumina (790+ lines Audit Engine), 
 # please report it to the contact email above.
