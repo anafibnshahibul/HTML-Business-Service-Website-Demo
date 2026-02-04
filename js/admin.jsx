@@ -6,7 +6,7 @@
 (function() {
     // 1. SECURITY & DOMAIN LOCK
     // Restricts the script to run only on authorized domains
-    if (window.location.hostname !== "lumina-port.netlify.app" && 
+    if (window.location.hostname !== "lumina-port1.netlify.app" && 
         window.location.hostname !== "localhost" && 
         window.location.hostname !== "127.0.0.1" && 
         window.location.protocol !== "file:") {
