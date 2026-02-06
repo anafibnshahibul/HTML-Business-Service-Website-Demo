@@ -4,230 +4,206 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>My Account - Lumina</title>
-    <link rel="stylesheet" href="css/style.css">
-    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;600;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&display=swap" rel="stylesheet">
     <style>
         :root {
-            --primary: #6366f1;
-            --primary-dark: #4f46e5;
-            --glass-bg: rgba(255, 255, 255, 0.95);
-            --text-dark: #0f172a;
-            --text-light: #64748b;
+            --bg-dark: #050505;
+            --card-dark: #121212;
+            --accent: #6366f1;
+            --accent-glow: rgba(99, 102, 241, 0.4);
+            --text-bright: #ffffff;
+            --text-dim: #a1a1aa;
+            --input-bg: #1a1a1a;
+            --border: #27272a;
         }
 
         body {
             margin: 0;
-            padding: 0;
-            font-family: 'Plus Jakarta Sans', sans-serif;
-            background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
-            height: 100vh;
+            font-family: 'Outfit', sans-serif;
+            background-color: var(--bg-dark);
+            color: var(--text-bright);
             display: flex;
             justify-content: center;
             align-items: center;
-            color: var(--text-dark);
+            min-height: 100vh;
         }
 
-        /* Modal Structure */
-        .modal-card {
-            background: var(--glass-bg);
+        /* The Main Container */
+        .pro-card {
+            background: var(--card-dark);
             width: 100%;
-            max-width: 450px;
+            max-width: 420px;
             padding: 40px;
             border-radius: 32px;
-            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
-            position: relative;
-            transform: translateY(0);
-            transition: 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            border: 1px solid var(--border);
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.8);
         }
 
-        .header { text-align: center; margin-bottom: 30px; }
-        .header h1 { font-size: 32px; margin: 0; font-weight: 800; letter-spacing: -1px; }
-        .header p { color: var(--text-light); margin-top: 8px; }
+        .header { text-align: center; margin-bottom: 40px; }
+        .header h1 { font-size: 36px; margin: 0; font-weight: 800; letter-spacing: -1.5px; }
+        .header p { color: var(--text-dim); margin-top: 10px; font-size: 15px; }
 
-        /* Form Styling */
-        .form-group { margin-bottom: 20px; position: relative; }
-        .form-group label { display: block; font-size: 13px; font-weight: 600; margin-bottom: 8px; color: var(--text-dark); }
-        
-        .input-box {
+        /* Input Styling - High Visibility */
+        .form-group { margin-bottom: 25px; }
+        .form-group label { display: block; font-size: 14px; font-weight: 600; margin-bottom: 10px; color: var(--text-dim); }
+
+        .input-pro {
             width: 100%;
-            padding: 14px 18px;
-            background: #f1f5f9;
-            border: 2px solid transparent;
+            padding: 16px 20px;
+            background: var(--input-bg);
+            border: 2px solid var(--border);
             border-radius: 16px;
-            font-size: 15px;
+            font-size: 16px;
+            color: var(--text-bright); /* High contrast white text */
             box-sizing: border-box;
             transition: 0.3s;
         }
 
-        .input-box:focus {
+        .input-pro:focus {
             outline: none;
-            border-color: var(--primary);
-            background: #fff;
-            box-shadow: 0 0 0 4px rgba(99, 102, 241, 0.1);
+            border-color: var(--accent);
+            background: #000;
+            box-shadow: 0 0 15px var(--accent-glow);
         }
 
-        .btn-pro {
+        /* Buttons */
+        .btn-glow {
             width: 100%;
-            padding: 16px;
-            background: var(--primary);
+            padding: 18px;
+            background: var(--accent);
             color: white;
             border: none;
-            border-radius: 16px;
+            border-radius: 18px;
             font-size: 16px;
             font-weight: 700;
             cursor: pointer;
-            transition: 0.3s;
-            box-shadow: 0 10px 15px -3px rgba(99, 102, 241, 0.3);
+            transition: 0.3s ease;
+            box-shadow: 0 4px 14px 0 var(--accent-glow);
         }
 
-        .btn-pro:hover {
-            background: var(--primary-dark);
-            transform: translateY(-2px);
+        .btn-glow:hover {
+            transform: translateY(-3px);
+            background: #4f46e5;
+            box-shadow: 0 6px 20px var(--accent-glow);
         }
 
-        .toggle-link {
+        .switch-text {
             text-align: center;
-            margin-top: 20px;
+            margin-top: 25px;
+            color: var(--text-dim);
             font-size: 14px;
-            color: var(--text-light);
         }
 
-        .toggle-link span {
-            color: var(--primary);
-            font-weight: 700;
+        .switch-text span {
+            color: var(--accent);
             cursor: pointer;
-            text-decoration: underline;
+            font-weight: 700;
         }
 
-        /* Profile Layout */
-        .profile-header { display: flex; align-items: center; gap: 20px; margin-bottom: 30px; }
-        .avatar {
-            width: 70px; height: 70px; background: var(--primary);
-            color: white; border-radius: 22px; display: flex;
-            align-items: center; justify-content: center; font-size: 28px; font-weight: 800;
+        /* Profile Details View */
+        .profile-box { text-align: center; }
+        .avatar-circle {
+            width: 90px; height: 90px; background: linear-gradient(135deg, #6366f1, #a855f7);
+            border-radius: 30px; margin: 0 auto 20px;
+            display: flex; align-items: center; justify-content: center;
+            font-size: 36px; font-weight: 800; color: white;
         }
 
-        .info-row {
-            background: #f8fafc; padding: 16px; border-radius: 18px;
-            margin-bottom: 12px; border: 1px solid #e2e8f0;
+        .info-pill {
+            background: var(--input-bg);
+            padding: 20px;
+            border-radius: 20px;
+            margin-bottom: 15px;
+            border: 1px solid var(--border);
+            text-align: left;
         }
-        .info-row small { display: block; font-size: 11px; font-weight: 700; color: var(--text-light); text-transform: uppercase; margin-bottom: 4px; }
-        .info-row span { font-weight: 600; color: var(--text-dark); }
+
+        .info-pill small { color: var(--text-dim); font-size: 11px; text-transform: uppercase; letter-spacing: 1px; }
+        .info-pill div { font-size: 17px; font-weight: 600; margin-top: 5px; }
 
         .hidden { display: none !important; }
     </style>
 </head>
 <body>
 
-    <div class="modal-card" id="main-card">
+    <div class="pro-card">
         
-        <div id="login-section">
+        <div id="reg-ui">
             <div class="header">
-                <h1>Welcome Back</h1>
-                <p>Sign in to your Lumina account</p>
+                <h1>Lumina</h1>
+                <p>Create your elite account</p>
             </div>
             <div class="form-group">
-                <label>Email Address</label>
-                <input type="email" id="login-email" class="input-box" placeholder="admin@lumina.com">
+                <label>FULL NAME</label>
+                <input type="text" id="name" class="input-pro" placeholder="Enter your name">
             </div>
             <div class="form-group">
-                <label>Password</label>
-                <input type="password" id="login-pass" class="input-box" placeholder="••••••••">
+                <label>EMAIL ADDRESS</label>
+                <input type="email" id="email" class="input-pro" placeholder="name@domain.com">
             </div>
-            <button class="btn-pro" onclick="handleLogin()">Sign In</button>
-            <p class="toggle-link">New here? <span onclick="showSection('register')">Create Account</span></p>
+            <div class="form-group">
+                <label>PHONE</label>
+                <input type="text" id="phone" class="input-pro" placeholder="+880 1XXX-XXXXXX">
+            </div>
+            <button class="btn-glow" onclick="saveUser()">Create Account</button>
+            <p class="switch-text">Already a member? <span onclick="alert('Use your name to Sign In!')">Sign In</span></p>
         </div>
 
-        <div id="register-section" class="hidden">
-            <div class="header">
-                <h1>Join Lumina</h1>
-                <p>Create your local pro profile</p>
+        <div id="profile-ui" class="hidden">
+            <div class="profile-box">
+                <div class="avatar-circle" id="user-initial">A</div>
+                <h2 id="disp-name" style="margin: 0; font-size: 28px;">Anaf Ahmed</h2>
+                <p id="disp-email" style="color: var(--text-dim); margin: 5px 0 30px;">anaf@lumina.pro</p>
             </div>
-            <div class="form-group">
-                <label>Full Name</label>
-                <input type="text" id="reg-name" class="input-box" placeholder="Enter your name">
-            </div>
-            <div class="form-group">
-                <label>Email Address</label>
-                <input type="email" id="reg-email" class="input-box" placeholder="email@example.com">
-            </div>
-            <div class="form-group">
-                <label>Phone Number</label>
-                <input type="text" id="reg-phone" class="input-box" placeholder="+880...">
-            </div>
-            <button class="btn-pro" onclick="handleRegister()">Register Now</button>
-            <p class="toggle-link">Already a member? <span onclick="showSection('login')">Sign In</span></p>
-        </div>
 
-        <div id="profile-section" class="hidden">
-            <div class="profile-header">
-                <div class="avatar" id="prof-init">A</div>
-                <div>
-                    <h2 id="prof-name" style="margin:0">User Name</h2>
-                    <p id="prof-email" style="margin:0; color:var(--text-light); font-size:14px;">email@lumina.com</p>
-                </div>
+            <div class="info-pill">
+                <small>Contact Number</small>
+                <div id="disp-phone">017XXXXXXXX</div>
             </div>
-            <div class="info-row">
-                <small>Mobile Number</small>
-                <span id="prof-phone">N/A</span>
-            </div>
-            <button class="btn-pro" style="background:#f1f5f9; color:var(--text-dark); margin-bottom:10px;" onclick="window.location.href='index.html'">Go to Store</button>
-            <button class="btn-pro" style="background:#fee2e2; color:#ef4444;" onclick="logout()">Sign Out</button>
+
+            <button class="btn-glow" style="margin-top: 20px;" onclick="window.location.href='index.html'">Enter Marketplace</button>
+            <button class="btn-glow" style="background: #1a1a1a; margin-top: 15px; box-shadow: none;" onclick="reset()">Reset Profile</button>
         </div>
 
     </div>
 
     <script>
-        const KEY = "lumina_pro_user";
+        const STORAGE_ID = "lumina_premium_v2";
 
         window.onload = () => {
-            const user = localStorage.getItem(KEY);
-            if(user) showSection('profile');
+            const data = localStorage.getItem(STORAGE_ID);
+            if(data) showProfile(JSON.parse(data));
         };
 
-        function showSection(section) {
-            document.getElementById('login-section').classList.add('hidden');
-            document.getElementById('register-section').classList.add('hidden');
-            document.getElementById('profile-section').classList.add('hidden');
+        function saveUser() {
+            const name = document.getElementById('name').value;
+            const email = document.getElementById('email').value;
+            const phone = document.getElementById('phone').value;
 
-            if(section === 'login') document.getElementById('login-section').classList.remove('hidden');
-            if(section === 'register') document.getElementById('register-section').classList.remove('hidden');
-            if(section === 'profile') {
-                document.getElementById('profile-section').classList.remove('hidden');
-                loadProfile();
+            if(!name || !email) {
+                alert("Please fill in your name and email!");
+                return;
             }
-        }
-
-        function handleRegister() {
-            const name = document.getElementById('reg-name').value;
-            const email = document.getElementById('reg-email').value;
-            const phone = document.getElementById('reg-phone').value;
-
-            if(!name || !email) return alert("Please fill the details!");
 
             const user = { name, email, phone };
-            localStorage.setItem(KEY, JSON.stringify(user));
-            showSection('profile');
+            localStorage.setItem(STORAGE_ID, JSON.stringify(user));
+            showProfile(user);
         }
 
-        function handleLogin() {
-            const user = localStorage.getItem(KEY);
-            if(!user) return alert("No account found! Please register.");
-            showSection('profile');
+        function showProfile(user) {
+            document.getElementById('reg-ui').classList.add('hidden');
+            document.getElementById('profile-ui').classList.remove('hidden');
+            
+            document.getElementById('disp-name').innerText = user.name;
+            document.getElementById('disp-email').innerText = user.email;
+            document.getElementById('disp-phone').innerText = user.phone || "Not Set";
+            document.getElementById('user-initial').innerText = user.name.charAt(0).toUpperCase();
         }
 
-        function loadProfile() {
-            const user = JSON.parse(localStorage.getItem(KEY));
-            document.getElementById('prof-name').innerText = user.name;
-            document.getElementById('prof-email').innerText = user.email;
-            document.getElementById('prof-phone').innerText = user.phone || "Not provided";
-            document.getElementById('prof-init').innerText = user.name.charAt(0).toUpperCase();
-        }
-
-        function logout() {
-            if(confirm("Sign out?")) {
-                localStorage.removeItem(KEY);
-                showSection('login');
+        function reset() {
+            if(confirm("Wipe profile data?")) {
+                localStorage.removeItem(STORAGE_ID);
+                location.reload();
             }
         }
     </script>
