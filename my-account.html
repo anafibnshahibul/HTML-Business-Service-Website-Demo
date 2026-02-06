@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Account | Lumina Project</title>
+    <link rel="stylesheet" href="css/style.css">
+    <style>
+        .lumina-container { max-width: 800px; margin: 50px auto; padding: 20px; }
+        .profile-card { background: #fff; border-radius: 15px; overflow: hidden; box-shadow: 0 10px 30px rgba(0,0,0,0.1); }
+        .banner { height: 120px; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); }
+        .user-content { padding: 30px; position: relative; }
+        .user-avatar { width: 100px; height: 100px; background: #fff; border-radius: 50%; position: absolute; top: -50px; left: 30px; display: flex; align-items: center; justify-content: center; font-size: 40px; box-shadow: 0 5px 15px rgba(0,0,0,0.1); border: 4px solid #fff; }
+        .info-group { margin-top: 60px; display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+        .field { margin-bottom: 15px; }
+        .field label { display: block; font-size: 12px; color: #888; text-transform: uppercase; font-weight: bold; }
+        .field p { font-size: 16px; color: #333; margin: 5px 0; border-bottom: 1px solid #eee; padding-bottom: 5px; }
+        .hidden { display: none; }
+        .form-control { width: 100%; padding: 10px; border: 1px solid #ddd; border-radius: 8px; margin-top: 5px; }
+    </style>
+</head>
+<body>
+
+<div class="lumina-container">
+    <div class="profile-card">
+        <div class="banner"></div>
+        <div class="user-content">
+            <div class="user-avatar" id="avatar-circle">L</div>
+            
+            <div id="view-section">
+                <div style="display: flex; justify-content: space-between; align-items: flex-start;">
+                    <div>
+                        <h2 id="view-name" style="margin: 0;">Lumina User</h2>
+                        <p id="view-email" style="color: #666; margin: 5px 0;">guest@lumina.local</p>
+                    </div>
+                    <button class="btn btn-primary" onclick="toggleEdit()">Edit Profile</button>
+                </div>
+                
+                <div class="info-group">
+                    <div class="field"><label>Phone</label><p id="view-phone">Not Set</p></div>
+                    <div class="field"><label>Location</label><p id="view-address">Not Set</p></div>
+                </div>
+            </div>
+
+            <div id="edit-section" class="hidden">
+                <h3>Update Account Information</h3>
+                <div class="info-group" style="margin-top: 20px;">
+                    <div class="field">
+                        <label>Full Name</label>
+                        <input type="text" id="edit-name" class="form-control">
+                    </div>
+                    <div class="field">
+                        <label>Email Address</label>
+                        <input type="email" id="edit-email" class="form-control">
+                    </div>
+                    <div class="field">
+                        <label>Phone Number</label>
+                        <input type="text" id="edit-phone" class="form-control">
+                    </div>
+                    <div class="field">
+                        <label>Address</label>
+                        <input type="text" id="edit-address" class="form-control">
+                    </div>
+                </div>
+                <div style="margin-top: 20px;">
+                    <button class="btn btn-success" onclick="saveToLumina()">Save to Local Server</button>
+                    <button class="btn" onclick="toggleEdit()" style="background: #eee;">Cancel</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    const LUMINA_STORAGE = "lumina_account_data";
+
+    window.onload = () => {
+        const savedData = localStorage.getItem(L_STORAGE_KEY()); // Just calling the load function
+        loadLuminaProfile();
+    };
+
+    function toggleEdit() {
+        document.getElementById('view-section').classList.toggle('hidden');
+        document.getElementById('edit-section').classList.toggle('hidden');
+    }
+
+    function saveToLumina() {
+        const profile = {
+            name: document.getElementById('edit-name').value,
+            email: document.getElementById('edit-email').value,
+            phone: document.getElementById('edit-phone').value,
+            address: document.getElementById('edit-address').value
+        };
+
+        if(!profile.name) {
+            alert("Please enter at least a name!");
+            return;
+        }
+
+        localStorage.setItem(LUMINA_STORAGE, JSON.stringify(profile));
+        alert("Success: Account details saved in your local browser storage!");
+        loadLuminaProfile();
+        toggleEdit();
+    }
+
+    function loadLuminaProfile() {
+        const raw = localStorage.getItem(LUMINA_STORAGE);
+        if(raw) {
+            const data = JSON.parse(raw);
+            // Display values
+            document.getElementById('view-name').innerText = data.name;
+            document.getElementById('view-email').innerText = data.email;
+            document.getElementById('view-phone').innerText = data.phone || "Not Set";
+            document.getElementById('view-address').innerText = data.address || "Not Set";
+            document.getElementById('avatar-circle').innerText = data.name.charAt(0).toUpperCase();
+
+            // Form values
+            document.getElementById('edit-name').value = data.name;
+            document.getElementById('edit-email').value = data.email;
+            document.getElementById('edit-phone').value = data.phone;
+            document.getElementById('edit-address').value = data.address;
+        }
+    }
+</script>
+
+</body>
+</html>
