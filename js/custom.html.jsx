@@ -6,14 +6,20 @@ class TypeWriterComponent extends HTMLElement {
     connectedCallback() {
         const tagType = this.getAttribute('con') || 'p';
         const userStyle = this.getAttribute('style') || "";
+        const userClass = this.getAttribute('class') || ""; 
+        const userId = this.getAttribute('id') || "";   
         
-        // ১. স্পিড অ্যাট্রিবিউট নেওয়া (যদি না থাকে তবে ডিফল্ট ১০০ হবে)
         const customSpeed = parseInt(this.getAttribute('speed')) || 100;
+        const startDelay = parseInt(this.getAttribute('delay')) || 0;
         
         const fullContent = this.innerHTML.trim();
         this.innerHTML = ''; 
 
         const element = document.createElement(tagType);
+        
+        if (userClass) element.className = userClass;
+        if (userId) element.id = userId;
+        
         element.setAttribute('style', userStyle); 
         
         if (!element.style.color) {
@@ -28,7 +34,6 @@ class TypeWriterComponent extends HTMLElement {
         let i = 0;
         const type = () => {
             if (i < fullContent.length) {
-                // <br> ট্যাগ হ্যান্ডেল করা
                 if (fullContent.substring(i, i + 4).toLowerCase() === '<br>') {
                     element.innerHTML += '<br>';
                     i += 4;
@@ -36,14 +41,13 @@ class TypeWriterComponent extends HTMLElement {
                     element.innerHTML += fullContent.charAt(i);
                     i++;
                 }
-                // ২. কাস্টম স্পিড ব্যবহার করা
                 setTimeout(type, customSpeed);
             } else {
                 element.style.borderRight = 'none';
             }
         };
 
-        type();
+        setTimeout(type, startDelay);
     }
 }
 
