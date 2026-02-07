@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -86,14 +87,6 @@
         .social-icons a { width: 40px; height: 40px; border-radius: 50%; background: var(--accent-bg); display: flex; align-items: center; justify-content: center; color: var(--dark); transition: 0.3s; }
         .social-icons a:hover { background: var(--primary); color: white; }
 
-        @media (max-width: 768px) {
-            .post-hero h1 { font-size: 2.5rem; }
-            .highlight-card { flex-direction: column; }
-        }
-    </style>
-</head>
-<body>
-    <style>
         .blog-header {
             background: linear-gradient(rgba(15, 23, 42, 0.8), rgba(15, 23, 42, 0.9)), 
                         url('https://images.unsplash.com/photo-1551288049-bbbda536339a?auto=format&fit=crop&w=1600&q=80');
@@ -115,11 +108,17 @@
         }
         .featured-img-full { width: 100%; border-radius: 20px; margin: 30px 0; }
         .meta-info { font-weight: 600; color: var(--secondary); text-transform: uppercase; letter-spacing: 1px; }
-    </style>
 
+        @media (max-width: 768px) {
+            .post-hero h1 { font-size: 2.5rem; }
+            .highlight-card { flex-direction: column; }
+        }
+    </style>
+</head>
+<body>
    <nav>
         <div class="container">
-            <a href="index.html"><div class="logo">LUMINA.</div></a>
+            <a href='/'><div class="logo">LUMINA.</div></a>
             
             <div class="hamburger" id="hamburger">
                 <span class="bar"></span>
@@ -128,14 +127,14 @@
             </div>
 
             <ul class="nav-links" id="nav-links">
-                <li><a href="index.html">Home</a></li>
-                <li><a href="about.html">About</a></li>
-                <li><a href="index.html#features">Features</a></li>
-                <li><a href="index.html#pricing">Pricing</a></li>
-                <li><a href="blog.htm">Blog</a></li> 
-                <li><a href="index.html#contact">Contact</a></li>
+                <li><a href='/'>Home</a></li>
+                <li><a href='/about'>About</a></li>
+                <li><a href='/#features'>Features</a></li>
+                <li><a href='/#pricing'>Pricing</a></li>
+                <li><a href='/blog'>Blog</a></li> 
+                <li><a href='/#contact'>Contact</a></li>
                 <li class="nav-btn-group">
-                    <a href="my-account.html" class="btn btn-sm">Sign Up</a>
+                    <a class='btn btn-sm' href='/my-account'>Sign Up</a>
                 </li>
             </ul>
         </div>
@@ -189,17 +188,17 @@
                 <div class="footer-col">
                     <p class="hf">Company</p>
                     <ul>
-                        <li><a href="about.html">About</a></li>
-                        <li><a href="carrer.html">Careers</a></li>
-                        <li><a href="blog.htm">Blog</a></li>
+                        <li><a href='/about'>About</a></li>
+                        <li><a href='/carrer'>Careers</a></li>
+                        <li><a href='/blog'>Blog</a></li>
                     </ul>
                 </div>
                 <div class="footer-col">
                     <p class="hf">Resources</p>
                     <ul>
-                        <li><a href="about.html">Documentation</a></li>
+                        <li><a href='/about'>Documentation</a></li>
                         <li><a href="javascript:void(0)" onclick="openHelp()">Help Center</a></li>
-                        <li><a href="privacy.html">Privacy</a></li>
+                        <li><a href='/privacy'>Privacy</a></li>
                     </ul>
                 </div>
                 <div class="footer-col">
