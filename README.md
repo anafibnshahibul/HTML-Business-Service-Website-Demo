@@ -112,7 +112,6 @@ Simply open `index.html` in your browser. For the best experience, use the **Liv
 ├── dashboard.html       # Protected Management Command Center
 ├── security-policy.html # Legal & Data Protection Guidelines
 ├── career.html          # Mission-driven Recruitment Page
-├── manifest.json        # PWA Support (Web-to-App)
 ├── sitemap.xml          # SEO Indexing with XSLT Styling
 ├── sitemap-style.xls    # Professional Sitemap Visualization
 ├── robots.txt           # Search Engine Instructions
@@ -132,3 +131,6 @@ Simply open `index.html` in your browser. For the best experience, use the **Liv
     ├── style.css        # Core Design System
     ├── style.min.css    # Audit System Optimization
     └── acc.css          # Dashboard Specific Styling
+├── path/
+    └── to/
+          ├── manifest.json        # PWA Support (Web-to-App)
