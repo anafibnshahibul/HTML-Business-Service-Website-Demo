@@ -200,7 +200,6 @@
         document.getElementById('plan-img-display').src = planData.img;
     }
     
-    // পেজ লোড হলে চেক করা
     const urlParams = new URLSearchParams(window.location.search);
     const preSelectedPlan = urlParams.get('plan');
     if (preSelectedPlan && plans[preSelectedPlan]) {
